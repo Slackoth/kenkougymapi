@@ -1,4 +1,4 @@
-package uca.ungallocontenis.kenkougymapi.entity;
+package uca.ungallocontenis.kenkougymapi.entity.KenkouUser;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package uca.ungallocontenis.kenkougymapi.entity;
+package uca.ungallocontenis.kenkougymapi.entity.KenkouUser;
 
 import java.util.List;
 
@@ -21,6 +21,7 @@ public class KenkouUser {
     private String firstName;
     @Column(name = "last_name")
     private String lastname;
+    private boolean enabled;
     private String password;
     @ManyToMany
     @JoinTable(name = "user_role", joinColumns = {@JoinColumn(name = "username", referencedColumnName = "username")}, inverseJoinColumns = {@JoinColumn(name = "role_code", referencedColumnName = "role_code")})
@@ -56,6 +57,14 @@ public class KenkouUser {
 
     public void setLastname(String lastname) {
         this.lastname = lastname;
+    }
+
+    public boolean isEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
     }
 
     public String getPassword() {

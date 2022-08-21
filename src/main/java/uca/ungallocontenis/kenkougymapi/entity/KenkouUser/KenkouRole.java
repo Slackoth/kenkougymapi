@@ -43,4 +43,9 @@ public class KenkouRole {
     public void setUsersByRole(List<KenkouUser> usersByRole) {
         this.usersByRole = usersByRole;
     }
+
+    @Override
+    public String toString() {
+        return "KenkouRole [roleCode=" + roleCode + ", roleName=" + roleName + "]";
+    }
 }

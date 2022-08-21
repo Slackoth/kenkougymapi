@@ -1,43 +1,83 @@
 package uca.ungallocontenis.kenkougymapi.service.KenkouUser;
 
-import java.util.Collections;
-import java.util.List;
-import java.util.stream.Collectors;
-
-import javax.transaction.Transactional;
+import java.security.Principal;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UserDetailsPasswordService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.provisioning.UserDetailsManager;
 import org.springframework.stereotype.Service;
 
-import uca.ungallocontenis.kenkougymapi.entity.KenkouUser.KenkouRole;
 import uca.ungallocontenis.kenkougymapi.entity.KenkouUser.KenkouUser;
+import uca.ungallocontenis.kenkougymapi.entity.KenkouUser.SecurityKenkouUser;
 import uca.ungallocontenis.kenkougymapi.repository.KenkouUser.KenkouUserRepository;
 
 @Service
-@Transactional
-public class KenkouUserService implements UserDetailsService {
+public class KenkouUserService implements UserDetailsManager, UserDetailsPasswordService /*UserDetailsService*/ {
 
     @Autowired
-    private KenkouUserRepository userDao;
+    private KenkouUserRepository repository;
+
+    /* SPRING SECURITY METHODS */
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        KenkouUser user = userDao.findByUsername(username);
+        KenkouUser kenkouUser = repository.findByUsername(username);
 
-        if(user == null)
-            throw new UsernameNotFoundException("Username " + username + "not found");
+        if(kenkouUser == null)
+            throw new UsernameNotFoundException("Username " + username + "not found!");
 
-        return new User(user.getUsername(), user.getPassword(), user.isEnabled(), true, true, true, usersRolesToAuthorities(user.getUsersRoles()));
+        return new SecurityKenkouUser(kenkouUser);
     }
 
-    private List<GrantedAuthority> usersRolesToAuthorities(List<KenkouRole> roles) {
-        return roles.stream().map(role -> new SimpleGrantedAuthority(role.getRoleName())).collect(Collectors.toList());
+    @Override
+    public void createUser(UserDetails user) {
+        // TODO Auto-generated method stub
+        
     }
-    
+
+    @Override
+    public void updateUser(UserDetails user) {
+        // TODO Auto-generated method stub
+        
+    }
+
+    @Override
+    public void deleteUser(String username) {
+        // TODO Auto-generated method stub
+        
+    }
+
+    @Override
+    public void changePassword(String oldPassword, String newPassword) {
+        // TODO Auto-generated method stub
+        
+    }
+
+    @Override
+    public boolean userExists(String username) {
+        KenkouUser kenkouUser = repository.findByUsername(username);
+
+        if(kenkouUser == null)
+            return false;
+        
+        return true;
+    }
+
+    @Override
+    public UserDetails updatePassword(UserDetails user, String newPassword) {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    /* APPLICATION METHODS */
+    public String getUserDetails(String username) {
+        KenkouUser kenkouUser = repository.findByUsername(username);
+
+        if(kenkouUser == null)
+            return "User not found!";
+
+        return kenkouUser.toString();
+    }
 }

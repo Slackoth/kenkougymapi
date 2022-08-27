@@ -8,21 +8,21 @@ import org.springframework.context.annotation.Configuration;
 public class KenkouGymAppInfo {
     
     private String name;
-    private String secret;
+    private String domain;
 
     public String getName() {
         return name;
     }
-
+    
     public void setName(String name) {
         this.name = name;
     }
 
-    public String getSecret() {
-        return secret;
+    public String getDomain() {
+        return domain;
     }
 
-    public void setSecret(String secret) {
-        this.secret = secret;
+    public void setDomain(String domain) {
+        this.domain = domain;
     }
 }

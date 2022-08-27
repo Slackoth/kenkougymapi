@@ -52,4 +52,8 @@ public class SecurityKenkouUser implements UserDetails {
     public boolean isEnabled() {
         return kenkouUser.isEnabled();
     }
+
+    public boolean isKenkouUserNull() {
+        return this.kenkouUser == null;
+    }
 }

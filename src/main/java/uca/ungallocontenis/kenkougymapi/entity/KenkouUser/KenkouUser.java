@@ -33,7 +33,7 @@ public class KenkouUser {
     private List<KenkouRole> usersRoles;
 
     public boolean isCredentialsExpired() {
-        return LocalDate.parse(this.credentialsExpiration).isEqual(LocalDate.now());
+        return LocalDate.parse(this.credentialsExpiration).isEqual(LocalDate.now()); 
     }
     
     public String getUsername() {

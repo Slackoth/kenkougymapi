@@ -341,3 +341,130 @@ ALTER TABLE ONLY public.receta
 
 
 
+--------------------------------------------------------------------------------------------------------------------------------
+
+--
+-- Name: Ejercicio; Type: TABLE; Schema: public; Owner: renemel
+--
+CREATE TABLE public.Ejercicio (
+    idEjercicio integer NOT NULL,
+	idImagenEjercicio integer,
+    NombreEjercicio character VARYING NOT NULL
+);
+
+
+ALTER TABLE public.Ejercicio ALTER COLUMN idEjercicio ADD GENERATED ALWAYS AS IDENTITY (
+    SEQUENCE NAME public.Ejercicio_idEjercicio_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+ALTER TABLE ONLY public.Ejercicio
+    ADD CONSTRAINT Ejercicio_pkey PRIMARY KEY (idEjercicio);
+
+ALTER TABLE ONLY public.Ejercicio
+    ADD CONSTRAINT fk_ImagenEjercicio FOREIGN KEY (idImagenEjercicio) REFERENCES public.ImagenEjercicio(idImagenEjercicio);
+	
+--
+-- Name: ImagenEjercicio; Type: TABLE; Schema: public; Owner: renemel
+--
+CREATE TABLE public.ImagenEjercicio (
+    idImagenEjercicio integer NOT NULL,
+    ImagenEjercicio character VARYING NOT NULL
+);
+
+
+ALTER TABLE public.ImagenEjercicio ALTER COLUMN idImagenEjercicio ADD GENERATED ALWAYS AS IDENTITY (
+    SEQUENCE NAME public.ImagenEjercicio_idImagenEjercicio_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+ALTER TABLE ONLY public.ImagenEjercicio
+    ADD CONSTRAINT ImagenEjercicio_pkey PRIMARY KEY (idImagenEjercicio);
+	
+--
+-- Name: Musculo; Type: TABLE; Schema: public; Owner: renemel
+--
+CREATE TABLE public.Musculo (
+    idMusculo integer NOT NULL,
+    NombreMusculo character VARYING NOT NULL
+);
+
+
+ALTER TABLE public.Musculo ALTER COLUMN idMusculo ADD GENERATED ALWAYS AS IDENTITY (
+    SEQUENCE NAME public.Musculo_idMusculo_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+ALTER TABLE ONLY public.Musculo
+    ADD CONSTRAINT Musculo_pkey PRIMARY KEY (idMusculo);
+	
+--
+-- Name: TipoRutina; Type: TABLE; Schema: public; Owner: renemel
+--
+CREATE TABLE public.TipoRutina (
+    idTipoRutina integer NOT NULL,
+    NombreTipoRutina character VARYING NOT NULL
+);
+
+
+ALTER TABLE public.TipoRutina ALTER COLUMN idTipoRutina ADD GENERATED ALWAYS AS IDENTITY (
+    SEQUENCE NAME public.TipoRutina_idTipoRutina_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+ALTER TABLE ONLY public.TipoRutina
+    ADD CONSTRAINT TipoRutina_pkey PRIMARY KEY (idTipoRutina);
+	
+--
+-- Name: Rutina; Type: TABLE; Schema: public; Owner: renemel
+--
+CREATE TABLE public.Rutina (
+    idRutina integer NOT NULL,
+	idMusculo integer,
+	idTipoRutina integer NOT NULL,
+	idEjercicio integer NOT NULL,
+	NombreRutina character VARYING NOT NULL,
+    Series integer,
+	Repeticiones integer,
+	PesoRecomendado integer,
+	TiempoRecomendado character VARYING,
+	VecesPorSemana character VARYING NOT NULL
+);
+
+
+ALTER TABLE public.Rutina ALTER COLUMN idRutina ADD GENERATED ALWAYS AS IDENTITY (
+    SEQUENCE NAME public.Rutina_idRutina_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+ALTER TABLE ONLY public.Rutina
+    ADD CONSTRAINT Rutina_pkey PRIMARY KEY (idRutina);
+
+ALTER TABLE ONLY public.Rutina
+    ADD CONSTRAINT fk_Musculo FOREIGN KEY (idMusculo) REFERENCES public.Musculo(idMusculo);
+
+ALTER TABLE ONLY public.Rutina
+    ADD CONSTRAINT fk_TipoRutina FOREIGN KEY (idTipoRutina) REFERENCES public.TipoRutina(idTipoRutina);
+	
+ALTER TABLE ONLY public.Rutina
+    ADD CONSTRAINT fk_Ejercicio FOREIGN KEY (idEjercicio) REFERENCES public.Ejercicio(idEjercicio);

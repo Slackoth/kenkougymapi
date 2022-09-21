@@ -12,10 +12,10 @@ import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
-import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
@@ -65,6 +65,9 @@ public class AuthorizationServerConfiguration {
         // Allow all HTTP headers
         configuration.setAllowedHeaders(Collections.singletonList("*"));
 
+        // Expose header to all frontend requests using our backend
+        configuration.setExposedHeaders(Collections.singletonList("Authorization"));
+
         // The response of a pre-flight request will be cached by 1 min
         configuration.setMaxAge(3600L);
 
@@ -88,14 +91,16 @@ public class AuthorizationServerConfiguration {
         // And this will apply for any requests coming from other places in the client
         .httpBasic();*/
 
+        // We disable the JSESSIONID token generation because we will provide a JWT token
+        http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
         // CORS configuration provided by Bean 
-        http.cors().and()
+        .cors().and()
         // Enables Cross-Site Forgery Protection
-        .csrf()
+        .csrf().disable() // Using JWT will protect from CSRF
         // All these paths are allowed to not include the CSRF token when sending requests
         // .ignoringAntMatchers("/path-csfr-should-ignore")
         // Necessary to allow js to read it 
-        .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse()).and()
+        // .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse()).and()
         .authorizeHttpRequests( auth -> auth
             .antMatchers("/authentication/authenticate").permitAll()
             .antMatchers("/user/**", "/authentication/**").authenticated()

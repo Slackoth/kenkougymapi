@@ -6,5 +6,5 @@ import uca.ungallocontenis.kenkougymapi.entity.KenkouUser.KenkouUser;
 
 public interface KenkouUserRepository extends JpaRepository<KenkouUser, String> {
     public KenkouUser findByUsername(String username);
-    public KenkouUser findByUsernameOrEmail(String username, String email);
+    public KenkouUser findByUsernameOrEmail(String usernameOrEmail);
 }

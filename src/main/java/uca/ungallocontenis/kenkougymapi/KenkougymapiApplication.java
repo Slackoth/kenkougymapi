@@ -1,6 +1,6 @@
 package uca.ungallocontenis.kenkougymapi;
 
-import org.slf4j.*;
+import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;

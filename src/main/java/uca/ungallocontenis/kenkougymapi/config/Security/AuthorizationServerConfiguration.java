@@ -80,8 +80,8 @@ public class AuthorizationServerConfiguration {
     @Bean
     @Order(Ordered.HIGHEST_PRECEDENCE) // First bean to initialize
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        /*// Default configuration which will secure all requests
-        http.authorizeRequests()
+        // Default configuration which will secure all requests
+        http.cors().disable().authorizeRequests()
         // Any request sent to the API
         .anyRequest()
         // Should be through an authenticated user
@@ -89,22 +89,22 @@ public class AuthorizationServerConfiguration {
         // And this will apply for any requests coming from forms in the client
         .formLogin().and()
         // And this will apply for any requests coming from other places in the client
-        .httpBasic();*/
+        .httpBasic();
 
         // We disable the JSESSIONID token generation because we will provide a JWT token
-        http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
-        // CORS configuration provided by Bean 
-        .cors().and()
-        // Enables Cross-Site Forgery Protection
-        .csrf().disable() // Using JWT will protect from CSRF
-        // All these paths are allowed to not include the CSRF token when sending requests
-        // .ignoringAntMatchers("/path-csfr-should-ignore")
-        // Necessary to allow js to read it 
-        // .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse()).and()
-        .authorizeHttpRequests( auth -> auth
-            .antMatchers("/authentication/authenticate").permitAll()
-            .antMatchers("/user/**", "/authentication/**").authenticated()
-        ).httpBasic(Customizer.withDefaults());
+        // http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
+        // // CORS configuration provided by Bean 
+        // .cors().and()
+        // // Enables Cross-Site Forgery Protection
+        // .csrf().disable() // Using JWT will protect from CSRF
+        // // All these paths are allowed to not include the CSRF token when sending requests
+        // // .ignoringAntMatchers("/path-csfr-should-ignore")
+        // // Necessary to allow js to read it 
+        // // .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse()).and()
+        // .authorizeHttpRequests( auth -> auth
+        //     .antMatchers("/authentication/authenticate").permitAll()
+        //     .antMatchers("/user/**", "/authentication/**").authenticated()
+        // ).httpBasic(Customizer.withDefaults());
 
         return http.build();
     }

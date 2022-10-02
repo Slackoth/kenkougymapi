@@ -83,13 +83,14 @@ public class AuthorizationServerConfiguration {
         // Default configuration which will secure all requests
         http.cors().disable().authorizeRequests()
         // Any request sent to the API
-        .anyRequest()
+        .anyRequest().permitAll()
         // Should be through an authenticated user
-        .authenticated().and()
+        // .authenticated().and()
         // And this will apply for any requests coming from forms in the client
-        .formLogin().and()
+        // .formLogin().and()
         // And this will apply for any requests coming from other places in the client
-        .httpBasic();
+        // .httpBasic()
+        ;
 
         // We disable the JSESSIONID token generation because we will provide a JWT token
         // http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()

@@ -13,8 +13,8 @@ public class PlanAlimenticio {
     @OneToOne
     public EstiloAlimenticio estiloAlimentacion;
     @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(name = "planXReceta", joinColumns = {@JoinColumn(name = "planId", referencedColumnName = "id")}, inverseJoinColumns = {@JoinColumn(name = "recetaId", referencedColumnName = "id")})
-    public List<Receta> planRecetas;
+    @JoinTable(name = "planXReceta", joinColumns = {@JoinColumn(name = "id_plan", referencedColumnName = "id")}, inverseJoinColumns = {@JoinColumn(name = "id_receta", referencedColumnName = "id")})
+    public List<Receta> recetas;
     
     public int getId() {
         return id;
@@ -40,11 +40,17 @@ public class PlanAlimenticio {
         this.estiloAlimentacion = estiloAlimentacion;
     }
 
-    public List<Receta> getPlanRecetas() {
-        return planRecetas;
+    public List<Receta> getRecetas() {
+        return recetas;
     }
 
-    public void setPlanRecetas(List<Receta> planRecetas) {
-        this.planRecetas = planRecetas;
+    public void setRecetas(List<Receta> recetas) {
+        this.recetas = recetas;
+    }
+
+    @Override
+    public String toString() {
+        return "PlanAlimenticio [estiloAlimentacion=" + estiloAlimentacion + ", nombre=" + nombre + ", recetas="
+                + recetas + "]";
     }
 }

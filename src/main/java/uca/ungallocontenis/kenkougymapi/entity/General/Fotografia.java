@@ -12,8 +12,8 @@ public class Fotografia {
     @Id
     public int id;
     public String foto;
-    @ManyToMany(mappedBy = "fotografias")
-    public List<Receta> recetas;
+    // @ManyToMany(mappedBy = "fotografias")
+    // public List<Receta> recetas;
     
     public int getId() {
         return id;

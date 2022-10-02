@@ -1,11 +1,12 @@
 package uca.ungallocontenis.kenkougymapi.entity.Nutricion;
 
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.*;
 
-import uca.ungallocontenis.kenkougymapi.entity.General.Fotografia;
 import uca.ungallocontenis.kenkougymapi.entity.General.Objetivo;
+import uca.ungallocontenis.kenkougymapi.entity.Nutricion.CantidadDeIngredienteEnReceta.CantidadDeIngredienteEnReceta;
 
 @Entity(name = "Receta")
 @Table(name = "receta")
@@ -17,17 +18,21 @@ public class Receta {
     public String linkVideo;
     public String instrucciones;
     @OneToOne
+    @JoinColumn(name = "id_objetivo")
     public Objetivo objetivo;
     @OneToOne
+    @JoinColumn(name = "tiempo_comida")
     TiempoComida tiempoComida;
-    @ManyToMany(mappedBy = "planRecetas")
-    public List<PlanAlimenticio> planesAlimenticios;
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(name = "fotografiaXReceta", joinColumns = {@JoinColumn(name = "recetaId", referencedColumnName = "id")}, inverseJoinColumns = {@JoinColumn(name = "fotografiaId", referencedColumnName = "id")})
-    public List<Fotografia> fotografias;
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(name = "ingredienteXReceta", joinColumns = {@JoinColumn(name = "recetaId", referencedColumnName = "id")}, inverseJoinColumns = {@JoinColumn(name = "ingredienteId", referencedColumnName = "id")})
-    public List<Ingrediente> ingredientes;
+    // @ManyToMany(mappedBy = "planRecetas")
+    // public List<PlanAlimenticio> planesAlimenticios;
+    // @ManyToMany(fetch = FetchType.LAZY)
+    // @JoinTable(name = "fotografiaXReceta", joinColumns = {@JoinColumn(name = "recetaId", referencedColumnName = "id")}, inverseJoinColumns = {@JoinColumn(name = "fotografiaId", referencedColumnName = "id")})
+    // public List<Fotografia> fotografias;
+    // @ManyToMany(fetch = FetchType.LAZY)
+    // @JoinTable(name = "ingredienteXReceta", joinColumns = {@JoinColumn(name = "id_receta", referencedColumnName = "id")}, inverseJoinColumns = {@JoinColumn(name = "id_ingrediente", referencedColumnName = "id")})
+    // public List<Ingrediente> ingredientes;
+    @OneToMany(mappedBy = "receta")
+    Set<CantidadDeIngredienteEnReceta> cantidadDeIngrediente;
 
     public int getId() {
         return id;
@@ -77,27 +82,11 @@ public class Receta {
         this.tiempoComida = tiempoComida;
     }
 
-    public List<PlanAlimenticio> getPlanesAlimenticios() {
-        return planesAlimenticios;
+    public Set<CantidadDeIngredienteEnReceta> getCantidadDeIngrediente() {
+        return cantidadDeIngrediente;
     }
 
-    public void setPlanesAlimenticios(List<PlanAlimenticio> planesAlimenticios) {
-        this.planesAlimenticios = planesAlimenticios;
-    }
-
-    public List<Fotografia> getFotografias() {
-        return fotografias;
-    }
-
-    public void setFotografias(List<Fotografia> fotografias) {
-        this.fotografias = fotografias;
-    }
-
-    public List<Ingrediente> getIngredientes() {
-        return ingredientes;
-    }
-
-    public void setIngredientes(List<Ingrediente> ingredientes) {
-        this.ingredientes = ingredientes;
+    public void setCantidadDeIngrediente(Set<CantidadDeIngredienteEnReceta> cantidadDeIngrediente) {
+        this.cantidadDeIngrediente = cantidadDeIngrediente;
     }
 }

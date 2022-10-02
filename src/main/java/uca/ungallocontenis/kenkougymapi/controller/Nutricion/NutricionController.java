@@ -52,7 +52,7 @@ public class NutricionController {
     }
     
     @GetMapping("/recetaPorNombre")
-    public String recetaPorNombre(String nombre) {
+    public String recetaPorNombre(@RequestParam String nombre) {
         String json = "[]";
         ObjectMapper mapper = new ObjectMapper();
         
@@ -66,12 +66,12 @@ public class NutricionController {
     }
     
     @GetMapping("/recetasDondeNombrePuedeSer")
-    public String recetasPorNombre(String nombre) {
+    public String recetasPorNombre(@RequestParam String nombre) {
         String json = "[]";
         ObjectMapper mapper = new ObjectMapper();
         
         try {
-            json = mapper.writeValueAsString(recetaRepository.findByNombreIsLikeIgnoringCase(nombre));
+            json = mapper.writeValueAsString(recetaRepository.findByNombreIsContainingIgnoringCase(nombre));
         } catch (JsonProcessingException e) {
             LOG.error("Error al parsear recetas", e);
         }

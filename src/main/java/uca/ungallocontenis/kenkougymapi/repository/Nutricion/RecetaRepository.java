@@ -8,7 +8,7 @@ import uca.ungallocontenis.kenkougymapi.entity.Nutricion.Receta;
 
 public interface RecetaRepository extends JpaRepository<Receta, Long> {
     public Receta findByNombre(String nombre);
-    public List<Receta> findByNombreIsLikeIgnoringCase(String nombre);
+    public List<Receta> findByNombreIsContainingIgnoringCase(String nombre);
     /* Objetivo */
     public List<Receta> findByObjetivo_Id(int objetivoId);
     public List<Receta> findByObjetivo_IdIsIn(List<Integer> objetivosId);

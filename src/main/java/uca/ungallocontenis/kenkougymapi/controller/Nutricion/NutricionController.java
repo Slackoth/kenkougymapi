@@ -35,6 +35,134 @@ public class NutricionController {
 
     private static final Logger LOG = org.slf4j.LoggerFactory.getLogger(NutricionController.class);
 
+    /* Plan Alimenticio */
+    
+    @GetMapping("/planesAlimenticios")
+    public String todosLosPlanesAlimenticios() {
+        String json = "[]";
+        ObjectMapper mapper = new ObjectMapper();
+        
+        try {
+            json = mapper.writeValueAsString(planRepository.findAll());
+        } catch (JsonProcessingException e) {
+            LOG.error("Error al parsear ingredientes", e);
+        }
+
+        return json;
+    }
+
+    @GetMapping("/planAlimenticioPorNombre")
+    public String planAlimenticioPorNombre(@RequestParam String nombre) {
+        String json = "[]";
+        ObjectMapper mapper = new ObjectMapper();
+        
+        try {
+            json = mapper.writeValueAsString(planRepository.findByNombre(nombre));
+        } catch (JsonProcessingException e) {
+            LOG.error("Error al parsear recetas", e);
+        }
+
+        return json;
+    }
+
+    @GetMapping("/planesAlimenticiosDondeNombrePuedeSer")
+    public String planesAlimenticiosDondeNombrePuedeSer(@RequestParam String nombre) {
+        String json = "[]";
+        ObjectMapper mapper = new ObjectMapper();
+        
+        try {
+            json = mapper.writeValueAsString(planRepository.findByNombreIsContainingIgnoringCase(nombre));
+        } catch (JsonProcessingException e) {
+            LOG.error("Error al parsear recetas", e);
+        }
+
+        return json;
+    }
+
+    @GetMapping("/planesAlimenticiosPorObjetivo")
+    public String planesAlimenticiosPorObjetivo(@RequestParam int objetivoId) {
+        String json = "[]";
+        ObjectMapper mapper = new ObjectMapper();
+        
+        try {
+            json = mapper.writeValueAsString(planRepository.findByObjetivo_Id(objetivoId));
+        } catch (JsonProcessingException e) {
+            LOG.error("Error al parsear recetas", e);
+        }
+
+        return json;
+    }
+
+    @GetMapping("/planesAlimenticiosPorObjetivos")
+    public String planesAlimenticiosPorObjetivos(@RequestParam List<Integer> objetivosId) {
+        String json = "[]";
+        ObjectMapper mapper = new ObjectMapper();
+        
+        try {
+            json = mapper.writeValueAsString(planRepository.findByObjetivo_IdIsIn(objetivosId));
+        } catch (JsonProcessingException e) {
+            LOG.error("Error al parsear recetas", e);
+        }
+
+        return json;
+    }
+
+    @GetMapping("/planesAlimenticiosPorEstilo")
+    public String planesAlimenticiosPorEstilo(@RequestParam int estiloId) {
+        String json = "[]";
+        ObjectMapper mapper = new ObjectMapper();
+        
+        try {
+            json = mapper.writeValueAsString(planRepository.findByEstiloAlimentacion_Id(estiloId));
+        } catch (JsonProcessingException e) {
+            LOG.error("Error al parsear recetas", e);
+        }
+
+        return json;
+    }
+
+    @GetMapping("/planesAlimenticiosPorEstilos")
+    public String planesAlimenticiosPorEstilos(@RequestParam List<Integer> estilosId) {
+        String json = "[]";
+        ObjectMapper mapper = new ObjectMapper();
+        
+        try {
+            json = mapper.writeValueAsString(planRepository.findByEstiloAlimentacion_IdIsIn(estilosId));
+        } catch (JsonProcessingException e) {
+            LOG.error("Error al parsear recetas", e);
+        }
+
+        return json;
+    }
+
+    @GetMapping("/planesAlimenticiosPorReceta")
+    public String planesAlimenticiosPorReceta(@RequestParam int recetaId) {
+        String json = "[]";
+        ObjectMapper mapper = new ObjectMapper();
+        
+        try {
+            json = mapper.writeValueAsString(planRepository.findByRecetas_Id(recetaId));
+        } catch (JsonProcessingException e) {
+            LOG.error("Error al parsear recetas", e);
+        }
+
+        return json;
+    }
+
+    @GetMapping("/planesAlimenticiosPorRecetas")
+    public String planesAlimenticiosPorRecetas(@RequestParam List<Integer> recetasId) {
+        String json = "[]";
+        ObjectMapper mapper = new ObjectMapper();
+        
+        try {
+            json = mapper.writeValueAsString(planRepository.findByRecetas_IdIsIn(recetasId));
+        } catch (JsonProcessingException e) {
+            LOG.error("Error al parsear recetas", e);
+        }
+
+        return json;
+    }
+
     /* Recetas */
 
     @GetMapping("/recetas")
@@ -66,7 +194,7 @@ public class NutricionController {
     }
     
     @GetMapping("/recetasDondeNombrePuedeSer")
-    public String recetasPorNombre(@RequestParam String nombre) {
+    public String recetasDondeNombrePuedeSer(@RequestParam String nombre) {
         String json = "[]";
         ObjectMapper mapper = new ObjectMapper();
         
@@ -243,20 +371,6 @@ public class NutricionController {
         
         try {
             json = mapper.writeValueAsString(tiempoRepository.findAll());
-        } catch (JsonProcessingException e) {
-            LOG.error("Error al parsear ingredientes", e);
-        }
-
-        return json;
-    }
-
-    @GetMapping("/planesAlimenticios")
-    public String todosLosPlanesAlimenticios() {
-        String json = "[]";
-        ObjectMapper mapper = new ObjectMapper();
-        
-        try {
-            json = mapper.writeValueAsString(planRepository.findAll());
         } catch (JsonProcessingException e) {
             LOG.error("Error al parsear ingredientes", e);
         }

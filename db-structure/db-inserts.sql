@@ -48,7 +48,7 @@ Ademas, se puede agregar un scoop de tu batido proteico preferido a la mezcla.
 
 ## Plato
 Servir estas tostadas en un plato con sus diferentes complementos, en este caso se agregan fresas pero puede agregarse cualquier tipo de fruta y un Jarabe de baja calorías
-',1,1 )
+',1,1 );
 
 --tabla nutricional
 insert into tablanutricional(id,fk_receta, calorias,proteinas,carbohidratos,fibra,grasas)
@@ -69,7 +69,7 @@ insert into fotografia (foto)
 values('https://www.google.com/url?sa=i&url=https%3A%2F%2Fcocinandojuntos.net%2Ftostadas-francesas-con-crema-y-fresas-facil-y-rico%2F&psig=AOvVaw34a3r8vrCSBgFUIkpWd8BX&ust=1666030820216000&source=images&cd=vfe&ved=0CA0QjRxqFwoTCOC2ncuu5foCFQAAAAAdAAAAABAE');
 
 insert into fotografiaxreceta (id_receta,id_fotografia)
-values(2,2)
+values(1,1)
 
 
 --receta2 tostadas francesas vegetarianas
@@ -91,7 +91,7 @@ Ademas, se puede agregar un scoop de tu batido proteico preferido a la mezcla.
 
 ## Plato
 Servir estas tostadas en un plato con sus diferentes complementos, en este caso se agregan fresas pero puede agregarse cualquier tipo de fruta y un Jarabe de baja calorías
-',1,1 )
+',1,1 );
 
 
 --tabla nutricional
@@ -117,27 +117,7 @@ insert into fotografiaxreceta (id_receta,id_fotografia)
 values(2,2)
 
 
---almuerzos!!!!1
---almuerzos!!!!1
-----almuerzos!!!!1
-----almuerzos!!!!1
-----almuerzos!!!!1
-----almuerzos!!!!1
-----almuerzos!!!!1
-----almuerzos!!!!1
-----almuerzos!!!!1
-----almuerzos!!!!1
-----almuerzos!!!!1
-----almuerzos!!!!1
-----almuerzos!!!!1
-----almuerzos!!!!1
-----almuerzos!!!!1
-----almuerzos!!!!1
-----
-
-
-
-
+---receta almuerzo
 
 
 INSERT INTO public.ingrediente
@@ -162,7 +142,7 @@ Nota: Los macros estimados son descontando la cantidad de condimentos utilizados
 
 ## Plato
 Servir en un plato, se puede acompañar con bebida natural al gusto. 
-',1,2 )
+',1,2 );
 
 
 --tabla nutricional
@@ -173,13 +153,12 @@ values(4,3,660,76,52,12,14);
 insert into ingredientexreceta (id_ingrediente,id_receta,gramos)
 values
 (1,3,50),
-(10,3,50),
-(11,3,50)
+(9,3,50),
+(10,3,50)
 ;
 
 insert into fotografia (foto)
-values('https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.pasionporelsabor.com%2Fes-sv%2Frecetas%2Fdulces-y-postres%2Fcalientes%2Ftostadas-a-la-francesa&psig=AOvVaw3TkMKN53DkxKCPOKhy9gz8&ust=1666017882618000&source=images&cd=vfe&ved=0CA0QjRxqFwoTCNjisrL-5PoCFQAAAAAdAAAAABAD');
-
+values('https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DX4C5QW7HCcA&psig=AOvVaw0exyQAFGVd-1E0nEME4Gqz&ust=1666044368313000&source=images&cd=vfe&ved=0CA0QjRxqFwoTCIjrnofh5foCFQAAAAAdAAAAABAE');
 insert into fotografiaxreceta (id_receta,id_fotografia)
 values(3,3)
 
@@ -207,7 +186,7 @@ values('Ensalada proteica balanceada','https://youtu.be/06O5vtVQEOE','
 5. Opcional se pueden agregar cebolla al gusto. 
 
 
-',1,2 )
+',1,2 );
 
 
 --tabla nutricional
@@ -269,16 +248,18 @@ values(5,5,320,24,43,7,6);
 --links ingredientes:
 insert into ingredientexreceta (id_ingrediente,id_receta,gramos)
 values
+(13,5,50),
 (14,5,50),
-(15,5,50),
-(16,5,50)
+(15,5,50)
 ;
 
 insert into fotografia (foto)
-values('https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.pasionporelsabor.com%2Fes-sv%2Frecetas%2Fdulces-y-postres%2Fcalientes%2Ftostadas-a-la-francesa&psig=AOvVaw3TkMKN53DkxKCPOKhy9gz8&ust=1666017882618000&source=images&cd=vfe&ved=0CA0QjRxqFwoTCNjisrL-5PoCFQAAAAAdAAAAABAD');
+values('https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.myfoodandfamily.com%2Fes-US%2Frecipe%2F171418%2Fsopa-seca-de-fideos-con-carne-de-cerdo-y-salsa-barbacoa&psig=AOvVaw25LooTb-updXEjF9X0vKtz&ust=1666044763135000&source=images&cd=vfe&ved=0CA0QjRxqFwoTCJDFy8Pi5foCFQAAAAAdAAAAABAI');
 
 insert into fotografiaxreceta (id_receta,id_fotografia)
-values(4,4)
+values(5,5)
 
+
+--receta 6
 
 

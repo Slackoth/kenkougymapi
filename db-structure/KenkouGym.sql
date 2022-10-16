@@ -55,9 +55,17 @@ CREATE TABLE public.ingrediente (
     proteinas numeric NOT NULL,
     carbohidratos numeric NOT NULL,
     fibra numeric NOT NULL,
-    grasasaturada numeric NOT NULL,
-    minerales numeric NOT NULL,
-    vitaminas numeric NOT NULL
+    grasas numeric not null
+);
+
+CREATE TABLE public.tablanutricional (
+    id integer NOT NULL,
+    fk_receta integer not null,
+    calorias numeric NOT NULL,
+    proteinas numeric NOT NULL,
+    carbohidratos numeric NOT NULL,
+    fibra numeric NOT NULL,
+    grasas numeric not null
 );
 
 --
@@ -261,6 +269,10 @@ ALTER TABLE ONLY public.fotografiaxreceta
 
 ALTER TABLE ONLY public.ingredientexreceta
     ADD CONSTRAINT fk_ingreceta FOREIGN KEY (id_ingrediente) REFERENCES public.ingrediente(id);
+   
+
+alter table only public.tablanutricional
+	ADD CONSTRAINT fk_receta FOREIGN KEY (fk_receta) REFERENCES public.receta(id);
 
 
 --

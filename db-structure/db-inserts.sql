@@ -225,10 +225,10 @@ VALUES('Carne magra de res', 135, 21.91, 0, 0, 4.62),
 
 insert into public.receta
 (nombre,linkvideo,instrucciones,id_objetivo,tiempo_comida)
-values('Ensalada proteica balanceada','https://youtu.be/06O5vtVQEOE','
+values('Fideos con carne magra','https://youtu.be/06O5vtVQEOE','
 ## Preparación
 
-1. Calentar 4 cuartos de agua en fuego alto. Cuando el agua empiece a hervir debvemos reducir el fuego a fuego bajo.ejercicio 
+1. Calentar 4 cuartos de agua en fuego alto. Cuando el agua empiece a hervir debemos reducir el fuego a fuego bajo.ejercicio 
 2. Agregar un paquete de pasta por persona, utilizar las instrucciones del empaque y al terminar se debe filtrar y poner a un lado
 3. En otro sarten se debe de poner a fuego medio y agregar aceite. 
 4. Agregar Carne magra de res y cocinarlo hasta que ambos lados se encuentren bien cocinado. 
@@ -262,4 +262,58 @@ values(5,5)
 
 --receta 6
 
+--html
+
+INSERT INTO public.ingrediente
+(nombre_alimento, calorias, proteinas, carbohidratos, fibra, grasas)
+values
+('Brocoli',31,2.57,6.0,2.4,0.34),
+('Crema Light ',30,0.5,1,0,2.6),
+('Fetuccini',220,8,42.95,2.5,1.29)
+;
+
+
+
+
+insert into public.receta
+(nombre,linkvideo,instrucciones,id_objetivo,tiempo_comida)
+values('Fettuccini de pechuga de pollo','https://youtu.be/06O5vtVQEOE','
+<h3> Preparación</h3>
+
+<ol>
+	<li> Calentar 4 cuartos de agua en fuego alto. Cuando el agua empiece a hervir debvemos reducir el fuego a fuego bajo.ejercicio </li>
+	<li> Agregar un paquete de fideos fettucini por persona, utilizar las instrucciones del empaque y al terminar se debe filtrar y poner a un lado </li>
+	<li> En otro sarten se debe de poner a fuego medio y agregar aceite. </li>
+	<li> Agregar pechuga en tiras y cocinarlo hasta que ambos lados se encuentren bien cocinado.</li>
+	<li> Agregar chile verde al gusto para agregar sabor y color al plato. </li> 
+	<li> Hervir brocoli en agua por 5 minutos. </li>
+	<li> Se puede agregar una chucharada de crema baja en calorías para mehjorrar su cremosidad </li> 
+</ol>
+
+<h3> Plato </h3>
+
+<p>Servir con Fetuccini, Agregar carne de res y chile verde. En otro plato se puenden poner los brocolis si es encesario</p> 
+
+
+',1,3)
+
+
+--tabla nutricional
+insert into tablanutricional(id,fk_receta, calorias,proteinas,carbohidratos,fibra,grasas)
+values(6,6,260,25,26,12,5);
+
+--links ingredientes:
+insert into ingredientexreceta (id_ingrediente,id_receta,gramos)
+values
+(9,6,50),
+(16,6,50),
+(17,6,50),
+(18,6,50)
+;
+
+insert into fotografia (foto)
+values('https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DMQWTWrNZNiw&psig=AOvVaw2u0XNII5S3m0M9U_xeQhJC&ust=1666046213834000&source=images&cd=vfe&ved=0CA0QjRxqFwoTCLi3m_fn5foCFQAAAAAdAAAAABAI');
+
+insert into fotografiaxreceta (id_receta,id_fotografia)
+values(6,6);
 

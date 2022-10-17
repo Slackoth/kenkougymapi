@@ -317,3 +317,172 @@ values('https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.youtube.com%2Fwatc
 insert into fotografiaxreceta (id_receta,id_fotografia)
 values(6,6);
 
+
+--receta 7
+
+
+INSERT INTO public.ingrediente
+(nombre_alimento, calorias, proteinas, carbohidratos, fibra, grasas)
+values
+('Queso Bajo en calorias',173,24.5,1.91,0,7),
+('Salsa de pizza light',15,0.2,3.7,0,0.06),
+('Tortilla integral',122,3.3,21,2.8,2.9)
+;
+
+
+
+
+insert into public.receta
+(nombre,linkvideo,instrucciones,id_objetivo,tiempo_comida)
+values('Pizza Proteica','https://youtu.be/06O5vtVQEOE','
+<h3> Preparación</h3>
+
+<ol>
+	<li> Calentar una sarten en fuego medio para poder saltear cebollas con un poco de aceite</li>
+	<li> Al llegar al pundo de caramelizarlas dejarlas en un lado</li>
+	<li> En el horno tostar la tortilla baja en calorías de su preferencia por 3 minutos a temperatura media. </li>
+	<li> Agregar todos los ingredientes en la tortilla, agregar rebanadas finas de queso</li>
+	<li> Luego hornear nuevamente la tortilla por otros tres minutos en la misma temperatura</li> 
+	<li> (Opcional) se puede agregar cualquier topping preferido </li> 
+</ol>
+
+<p><u>Nota: Valores nutriciales no incluyen toppings extras agregados.</u></p>
+
+ 
+
+
+',1,3);
+
+
+--tabla nutricional
+insert into tablanutricional(id,fk_receta, calorias,proteinas,carbohidratos,fibra,grasas)
+values(7,7,625,41,49,10,17);
+
+--links ingredientes:
+insert into ingredientexreceta (id_ingrediente,id_receta,gramos)
+values
+(19,7,50),
+(20,7,50),
+(21,7,50)
+;
+
+insert into fotografia (foto)
+values('https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.pinterest.com%2Fpin%2F319333429804008748%2F&psig=AOvVaw3FTsfcp62k9V6XMnkWOxSS&ust=1666048386938000&source=images&cd=vfe&ved=0CA0QjRxqFwoTCOikrYPw5foCFQAAAAAdAAAAABAE');
+
+insert into fotografiaxreceta (id_receta,id_fotografia)
+values(7,7);
+
+
+
+--receta 8. postres/refrigerios
+
+
+
+INSERT INTO public.ingrediente
+(nombre_alimento, calorias, proteinas, carbohidratos, fibra, grasas)
+values
+('Queso Cottage',72,12,2.72,0,1),
+('Leche de almendras',40,1.51,1.4,0.8,3.58),
+('Gelatina baja en calorias',10,0.82,4.13,0,0)
+;
+
+
+
+
+insert into public.receta
+(nombre,linkvideo,instrucciones,id_objetivo,tiempo_comida)
+values('Buddin proteico de queso con chocolate','https://youtu.be/06O5vtVQEOE','
+<h3> Preparación</h3>
+
+<ol>
+	<li>Poner 2 tazas de queso cottage, 4.5 tazas de leche de almednras, 2 cucharadas de gelatina, una cucharada de guar, Endulzante al gusto</li>
+	<li> Agregar todos los ingredientes a una licuadora y licuiar por tres minutos a velocidad media-alta</li>
+	<li> (Opcional)Agregar Polvo de batido de proteina basado en caseina de preferencia</li>
+	<li> Colocar la mezcla en un deposito y colocarla en un regrigerador por 10 minutos </li>
+	<li> Se puede agregar cualquier tipo de topping al gusto</li> 
+</ol>
+
+<p><u>Nota: Valores nutriciales no incluyen toppings extras agregados.</u></p>
+
+ 
+
+
+',1,4);
+
+
+--tabla nutricional
+insert into tablanutricional(id,fk_receta, calorias,proteinas,carbohidratos,fibra,grasas)
+values(8,8,99,8,14,2,1);
+
+--links ingredientes:
+insert into ingredientexreceta (id_ingrediente,id_receta,gramos)
+values
+(22,8,50),
+(23,8,50),
+(8,8,50)
+;
+
+insert into fotografia (foto)
+values('https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.pinterest.com%2Fpin%2F319333429804008748%2F&psig=AOvVaw3FTsfcp62k9V6XMnkWOxSS&ust=1666048386938000&source=images&cd=vfe&ved=0CA0QjRxqFwoTCOikrYPw5foCFQAAAAAdAAAAABAE');
+
+insert into fotografiaxreceta (id_receta,id_fotografia)
+values(8,8);
+
+
+
+
+--receta 9
+
+INSERT INTO public.ingrediente
+(nombre_alimento, calorias, proteinas, carbohidratos, fibra, grasas)
+values
+('Queso Cottage',72,12,2.72,0,1),
+('Leche de almendras',40,1.51,1.4,0.8,3.58),
+('Gelatina baja en calorias',10,0.82,4.13,0,0)
+;
+
+
+
+
+insert into public.receta
+(nombre,linkvideo,instrucciones,id_objetivo,tiempo_comida)
+values('Buddin proteico de queso con chocolate','https://youtu.be/06O5vtVQEOE','
+<h3> Preparación</h3>
+
+<ol>
+	<li>Poner 2 tazas de queso cottage, 4.5 tazas de leche de almednras, 2 cucharadas de gelatina, una cucharada de guar, Endulzante al gusto</li>
+	<li> Agregar todos los ingredientes a una licuadora y licuiar por tres minutos a velocidad media-alta</li>
+	<li> (Opcional)Agregar Polvo de batido de proteina basado en caseina de preferencia</li>
+	<li> Colocar la mezcla en un deposito y colocarla en un regrigerador por 10 minutos </li>
+	<li> Se puede agregar cualquier tipo de topping al gusto</li> 
+</ol>
+
+<p><u>Nota: Valores nutriciales no incluyen toppings extras agregados.</u></p>
+
+ 
+
+
+',1,4);
+
+
+--tabla nutricional
+insert into tablanutricional(id,fk_receta, calorias,proteinas,carbohidratos,fibra,grasas)
+values(9,9,99,8,14,2,1);
+
+--links ingredientes:
+insert into ingredientexreceta (id_ingrediente,id_receta,gramos)
+values
+(22,9,50),
+(23,9,50),
+(8,9,50)
+;
+
+insert into fotografia (foto)
+values('https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.pinterest.com%2Fpin%2F319333429804008748%2F&psig=AOvVaw3FTsfcp62k9V6XMnkWOxSS&ust=1666048386938000&source=images&cd=vfe&ved=0CA0QjRxqFwoTCOikrYPw5foCFQAAAAAdAAAAABAE');
+
+insert into fotografiaxreceta (id_receta,id_fotografia)
+values(9,9);
+
+
+
+

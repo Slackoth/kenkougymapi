@@ -54,19 +54,21 @@ public class AuthorizationServerConfiguration {
         
         // Any communication to this backend will be accepted if the communication is coming from
         // these specified domains
-        configuration.setAllowedOrigins(Collections.singletonList(clientInfo.getDomain()));
+        // configuration.setAllowedOrigins(Collections.singletonList(clientInfo.getDomain()));
+        configuration.setAllowedOrigins(Collections.singletonList("*"));
 
         // Allow all HTTP methods 
         configuration.setAllowedMethods(Collections.singletonList("*"));
 
         // Allow credentials
-        configuration.setAllowCredentials(true);
+        // configuration.setAllowCredentials(true);
+        configuration.setAllowCredentials(false);
 
         // Allow all HTTP headers
         configuration.setAllowedHeaders(Collections.singletonList("*"));
 
         // Expose header to all frontend requests using our backend
-        configuration.setExposedHeaders(Collections.singletonList("Authorization"));
+        // configuration.setExposedHeaders(Collections.singletonList("Authorization"));
 
         // The response of a pre-flight request will be cached by 1 min
         configuration.setMaxAge(3600L);
@@ -81,7 +83,7 @@ public class AuthorizationServerConfiguration {
     @Order(Ordered.HIGHEST_PRECEDENCE) // First bean to initialize
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         // Default configuration which will secure all requests
-        http.cors().disable().authorizeRequests()
+        http.cors().and().authorizeRequests()
         // Any request sent to the API
         .anyRequest().permitAll()
         // Should be through an authenticated user

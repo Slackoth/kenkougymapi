@@ -23,16 +23,14 @@ public class Receta {
     @OneToOne
     @JoinColumn(name = "tiempo_comida")
     TiempoComida tiempoComida;
-    // @ManyToMany(mappedBy = "planRecetas")
-    // public List<PlanAlimenticio> planesAlimenticios;
-    // @ManyToMany(fetch = FetchType.LAZY)
-    // @JoinTable(name = "fotografiaXReceta", joinColumns = {@JoinColumn(name = "recetaId", referencedColumnName = "id")}, inverseJoinColumns = {@JoinColumn(name = "fotografiaId", referencedColumnName = "id")})
-    // public List<Fotografia> fotografias;
-    // @ManyToMany(fetch = FetchType.LAZY)
-    // @JoinTable(name = "ingredienteXReceta", joinColumns = {@JoinColumn(name = "id_receta", referencedColumnName = "id")}, inverseJoinColumns = {@JoinColumn(name = "id_ingrediente", referencedColumnName = "id")})
-    // public List<Ingrediente> ingredientes;
+
     @OneToMany(mappedBy = "receta")
     Set<CantidadDeIngredienteEnReceta> cantidadDeIngrediente;
+    
+    
+    @OneToOne
+    @JoinColumn(name = "tablanutrionalid")
+    public TablaNutricional tablanutricional;
 
     public int getId() {
         return id;

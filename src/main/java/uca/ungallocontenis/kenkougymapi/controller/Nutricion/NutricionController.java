@@ -12,11 +12,14 @@ import org.springframework.web.bind.annotation.RestController;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import uca.ungallocontenis.kenkougymapi.entity.Nutricion.TablaNutricional;
 import uca.ungallocontenis.kenkougymapi.repository.Nutricion.EstiloAlimenticioRepository;
 import uca.ungallocontenis.kenkougymapi.repository.Nutricion.IngredienteRepository;
 import uca.ungallocontenis.kenkougymapi.repository.Nutricion.PlanAlimenticioRepository;
 import uca.ungallocontenis.kenkougymapi.repository.Nutricion.RecetaRepository;
 import uca.ungallocontenis.kenkougymapi.repository.Nutricion.TiempoComidaRepository;
+import uca.ungallocontenis.kenkougymapi.repository.Nutricion.TablaNutricionalRepository;
+
 
 @RestController
 @RequestMapping("/nutricion")
@@ -32,6 +35,8 @@ public class NutricionController {
     private IngredienteRepository ingredienteRepository;
     @Autowired
     private EstiloAlimenticioRepository estiloRepository;
+    @Autowired
+    private TablaNutricionalRepository tablarepository;
 
     private static final Logger LOG = org.slf4j.LoggerFactory.getLogger(NutricionController.class);
 
@@ -391,4 +396,19 @@ public class NutricionController {
 
         return json;
     }
+    
+    @GetMapping("/tablaNutricionalporReceta")
+    public String TablaPorReceta (@RequestParam int id) {
+    String json = "[]";
+    ObjectMapper mapper = new ObjectMapper();
+    
+    try {
+        json = mapper.writeValueAsString(tablarepository.findByid(id));
+    } catch (JsonProcessingException e) {
+        LOG.error("Error al parsear tablas", e);
+    }
+
+    return json;
+    }
 }
+

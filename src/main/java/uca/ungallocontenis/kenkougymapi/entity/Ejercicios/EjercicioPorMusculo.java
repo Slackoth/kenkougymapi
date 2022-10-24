@@ -8,24 +8,23 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 public class EjercicioPorMusculo {
     @Id
     public int id;
-    @JsonIgnore
     @ManyToOne
     @MapsId("musculoId")
-    @JoinColumn(name = "id")
+    @JoinColumn(name = "idmusculo")
     Musculo musculo;
     @ManyToOne
     @MapsId("ejercicioId")
-    @JoinColumn(name = "id")
+    @JoinColumn(name = "idejercicio")
     Ejercicio ejercicio;
     @ManyToOne
     @MapsId("idImagen")
-    @JoinColumn(name = "id")
+    @JoinColumn(name = "idimagen") 
     ImagenEjercicio imagenEjercicio;
 
     public int getId() {
-        return id;
+        return id; 
     }
-    public void setId(int id) {
+    public void setIdE(int id) {
         this.id = id;
     }
 

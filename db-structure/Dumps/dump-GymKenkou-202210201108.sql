@@ -635,6 +635,10 @@ INSERT INTO public.ejercicio OVERRIDING SYSTEM VALUE VALUES (10, 'ZANCADA CON PE
 INSERT INTO public.ejercicio OVERRIDING SYSTEM VALUE VALUES (11, 'DEADBUG');
 INSERT INTO public.ejercicio OVERRIDING SYSTEM VALUE VALUES (12, 'ELEVACION DE CADERA');
 INSERT INTO public.ejercicio OVERRIDING SYSTEM VALUE VALUES (13, 'FROG JUMPS');
+INSERT INTO public.ejercicio OVERRIDING SYSTEM VALUE VALUES (14, 'PREDICADOR');
+INSERT INTO public.ejercicio OVERRIDING SYSTEM VALUE VALUES (15, 'POLEA TRASNUCA');
+INSERT INTO public.ejercicio OVERRIDING SYSTEM VALUE VALUES (16, 'ELEVACIONES LATERALES');
+INSERT INTO public.ejercicio OVERRIDING SYSTEM VALUE VALUES (17, 'PRESS DE BANCA CON BARRA');
 
 
 --
@@ -703,7 +707,16 @@ INSERT INTO public.fotografiaxreceta VALUES (9, 9);
 -- Dependencies: 238
 -- Data for Name: imagen_ejercicio; Type: TABLE DATA; Schema: public; Owner: -
 --
-
+INSERT INTO public.imagen_ejercicio(id, imagen) OVERRIDING SYSTEM VALUE	VALUES (1,'../imagenes/rutines/piernas.jpg');
+INSERT INTO public.imagen_ejercicio(id, imagen) OVERRIDING SYSTEM VALUE	VALUES (2,'../imagenes/rutines/predicador.jpg');
+INSERT INTO public.imagen_ejercicio(id, imagen) OVERRIDING SYSTEM VALUE	VALUES (3,'../imagenes/rutines/espalda.jpg');
+INSERT INTO public.imagen_ejercicio(id, imagen) OVERRIDING SYSTEM VALUE	VALUES (4,'../imagenes/rutines/hombros.jpg');
+INSERT INTO public.imagen_ejercicio(id, imagen) OVERRIDING SYSTEM VALUE	VALUES (5,'../imagenes/rutines/pectorales.jpg');
+INSERT INTO public.imagen_ejercicio(id, imagen) OVERRIDING SYSTEM VALUE	VALUES (6,'../imagenes/rutines/rutina_brazos.jpg');
+INSERT INTO public.imagen_ejercicio(id, imagen) OVERRIDING SYSTEM VALUE	VALUES (7,'../imagenes/rutines/rutina_brazos.jpg');
+INSERT INTO public.imagen_ejercicio(id, imagen) OVERRIDING SYSTEM VALUE	VALUES (8,'../imagenes/rutines/rutina_espalda.jpg');
+INSERT INTO public.imagen_ejercicio(id, imagen) OVERRIDING SYSTEM VALUE	VALUES (9,'../imagenes/rutines/rutina_hombros.jpg');
+INSERT INTO public.imagen_ejercicio(id, imagen) OVERRIDING SYSTEM VALUE	VALUES (10,'../imagenes/rutines/rutina_pectorales.jpg');
 
 
 --
@@ -820,6 +833,8 @@ INSERT INTO public.musculo OVERRIDING SYSTEM VALUE VALUES (9, 'CUADRICEPS');
 INSERT INTO public.musculo OVERRIDING SYSTEM VALUE VALUES (10, 'MUSCULO DEL ANTEBRAZO');
 INSERT INTO public.musculo OVERRIDING SYSTEM VALUE VALUES (11, 'MUSCULO DEL CUELLO');
 INSERT INTO public.musculo OVERRIDING SYSTEM VALUE VALUES (12, 'GEMELOS');
+INSERT INTO public.musculo OVERRIDING SYSTEM VALUE VALUES (13, 'PIERNAS');
+INSERT INTO public.musculo OVERRIDING SYSTEM VALUE VALUES (14, 'ESPALDA');
 
 
 --

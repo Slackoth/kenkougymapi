@@ -11,10 +11,13 @@ import org.springframework.stereotype.Service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.json.JsonMapper;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 
 import uca.ungallocontenis.kenkougymapi.entity.KenkouUser.Progreso;
 import uca.ungallocontenis.kenkougymapi.entity.KenkouUser.UsuarioObjetivoActivo.UsuarioObjetivoActivo;
 import uca.ungallocontenis.kenkougymapi.repository.KenkouUser.KenkouUserRepository;
+import uca.ungallocontenis.kenkougymapi.repository.KenkouUser.ProgresoRepository;
 
 @Service
 public class KenkouUserService {
@@ -23,6 +26,9 @@ public class KenkouUserService {
 
     @Autowired
     private KenkouUserRepository repository;
+
+    @Autowired
+    private ProgresoRepository progresoRepository;
 
     public String obtenerUsuario(String username) {
         String json = "[]";
@@ -50,25 +56,33 @@ public class KenkouUserService {
         try {
             json = mapper.writeValueAsString(objetivoActivo);
         } catch (JsonProcessingException e) {
-            LOG.error("Error al parsear usuario", e);
+            LOG.error("Error al parsear objetivo", e);
         }
 
         return json;
     }
 
     public String insertarProgreso(Progreso progreso) {
+        String json = "[]";
         double porcentajeGrasa = 0;
         String sexo = repository.getSexoByUsername(progreso.getUsername());
         double altura = repository.getMeidaAlturaByUsername(progreso.getUsername());
+        ObjectMapper mapper = JsonMapper.builder().addModule(new JavaTimeModule()).build();
 
         // U.S. Navy Method
         if(sexo.equals("M")) 
             porcentajeGrasa = (495.0 / (1.0324 - (0.19077 * Math.log10(progreso.getMedidaCuello() + progreso.getDiametroCintura())) + (0.15456 * Math.log10(altura)))) - 450;
         else 
             porcentajeGrasa = (495.0 / (1.29579 - (0.35004 * Math.log10(progreso.getMedidaCuello() + progreso.getDiametroCaderas() + progreso.getDiametroCintura())) + (0.22100 * Math.log10(altura)))) - 450;
-            
+
         progreso.setPorcentajeGrasa(porcentajeGrasa);
-        return "";
+        try {
+            json = mapper.writeValueAsString(progresoRepository.saveAndFlush(progreso));
+        } catch (JsonProcessingException e) {
+            LOG.error("Error al parsear progreso", e);
+        }
+        
+        return json;
     }
     
     public String obtenerProgreso(String username) {

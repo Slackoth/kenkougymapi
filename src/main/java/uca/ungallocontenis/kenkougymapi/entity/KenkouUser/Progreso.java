@@ -4,11 +4,19 @@ import java.time.LocalDate;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity(name = "Progreso")
 @Table(name = "progreso")
 public class Progreso {
     @Id
     @Column(name = "id_progreso")
+    
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    // @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "progreso_id_progreso_seq")
+    // @SequenceGenerator(name = "progreso_id_progreso_seq", sequenceName = "progreso_id_progreso_seq")
+    @JsonIgnore
     private int id;
     private String username;
     private double peso;
@@ -31,6 +39,7 @@ public class Progreso {
     @Column(name = "porcentaje_grasa")
     private double porcentajeGrasa;
     @Column(columnDefinition = "DATE")
+    @JsonFormat(pattern = "dd/MM/yyyy")
     private LocalDate fecha;
     
     public int getId() {

@@ -883,16 +883,35 @@ INSERT INTO public.fotografiaxreceta VALUES (9, 9);
 -- Data for Name: imagen_ejercicio; Type: TABLE DATA; Schema: public; Owner: kenkougym
 --
 
-INSERT INTO public.imagen_ejercicio OVERRIDING SYSTEM VALUE VALUES (1, '../imagenes/rutines/piernas.jpg');
-INSERT INTO public.imagen_ejercicio OVERRIDING SYSTEM VALUE VALUES (2, '../imagenes/rutines/predicador.jpg');
-INSERT INTO public.imagen_ejercicio OVERRIDING SYSTEM VALUE VALUES (3, '../imagenes/rutines/espalda.jpg');
-INSERT INTO public.imagen_ejercicio OVERRIDING SYSTEM VALUE VALUES (4, '../imagenes/rutines/hombros.jpg');
-INSERT INTO public.imagen_ejercicio OVERRIDING SYSTEM VALUE VALUES (5, '../imagenes/rutines/pectorales.jpg');
-INSERT INTO public.imagen_ejercicio OVERRIDING SYSTEM VALUE VALUES (6, '../imagenes/rutines/rutina_brazos.jpg');
-INSERT INTO public.imagen_ejercicio OVERRIDING SYSTEM VALUE VALUES (7, '../imagenes/rutines/rutina_brazos.jpg');
-INSERT INTO public.imagen_ejercicio OVERRIDING SYSTEM VALUE VALUES (8, '../imagenes/rutines/rutina_espalda.jpg');
-INSERT INTO public.imagen_ejercicio OVERRIDING SYSTEM VALUE VALUES (9, '../imagenes/rutines/rutina_hombros.jpg');
-INSERT INTO public.imagen_ejercicio OVERRIDING SYSTEM VALUE VALUES (10, '../imagenes/rutines/rutina_pectorales.jpg');
+--Concentrado
+INSERT INTO public.imagen_ejercicio OVERRIDING SYSTEM VALUE VALUES (1, '"https://drive.google.com/uc?export=view&id=1MNKjIARxRDGutPiPh9cm7q6Gjsmg0E0F"');
+-- Predicador
+INSERT INTO public.imagen_ejercicio OVERRIDING SYSTEM VALUE VALUES (2, '"https://drive.google.com/uc?export=view&id=13_l7UFNr2aQvjU3_cVa-eZSVgGTQmtC5"');
+-- Curl barra celta
+INSERT INTO public.imagen_ejercicio OVERRIDING SYSTEM VALUE VALUES (3, '"https://drive.google.com/uc?export=view&id=1aEHx49Tnt87TCXyfwIxiEvRVH0rM5I-6"');
+-- Curl supino 
+INSERT INTO public.imagen_ejercicio OVERRIDING SYSTEM VALUE VALUES (4, '"https://drive.google.com/uc?export=view&id=1repu2txqmAz37YmN08khbuaXVzbLxg_E"');
+-- Tricep
+INSERT INTO public.imagen_ejercicio OVERRIDING SYSTEM VALUE VALUES (5, '"https://drive.google.com/uc?export=view&id=1tP1aBWCYnrScfilp-J3JZydvkJ7EB0xB"');
+-- Rompecocos
+INSERT INTO public.imagen_ejercicio OVERRIDING SYSTEM VALUE VALUES (6, '"https://drive.google.com/uc?export=view&id=10bbNkMiPA9vMNkVI0rkYTiWc-AcSQ-9l"');
+--Copa lazo
+INSERT INTO public.imagen_ejercicio OVERRIDING SYSTEM VALUE VALUES (7, '"https://drive.google.com/uc?export=view&id=1ia3s_YcalNh9CacNRlaP1gEMVcZ0tnXL"');
+--
+--Hombros
+INSERT INTO public.imagen_ejercicio OVERRIDING SYSTEM VALUE VALUES (8, '"https://drive.google.com/uc?export=view&id=1HaKgO30KQNv2wfsUSZOPxcNKNQSUq-pw"');
+-- Espalda
+INSERT INTO public.imagen_ejercicio OVERRIDING SYSTEM VALUE VALUES (9, '"https://drive.google.com/uc?export=view&id=1ah7hvtjuZ6XB-iHLIzR59HEN4BOlJTGr"');
+-- Pectorales
+INSERT INTO public.imagen_ejercicio OVERRIDING SYSTEM VALUE VALUES (10, '"https://drive.google.com/uc?export=view&id=13XRTCnyi89dbiYyrdpxA4k3rXpJ4ZTsg"');
+-- Piernas
+INSERT INTO public.imagen_ejercicio OVERRIDING SYSTEM VALUE VALUES (11, '"https://drive.google.com/uc?export=view&id=12fic5fNXXUPQ9GRPFr09aA5jPDudaeuz"');
+-- Abdominales
+INSERT INTO public.imagen_ejercicio OVERRIDING SYSTEM VALUE VALUES (12, '"https://drive.google.com/uc?export=view&id=1AuMgJ1-i11DpaozdVmttPu7Nd1XK1cvA"');
+INSERT INTO public.imagen_ejercicio OVERRIDING SYSTEM VALUE VALUES (13, '"https://drive.google.com/uc?export=view&id=1dMwVyzKZaTp612onhUZD0mfF1iyGiNaT"');
+INSERT INTO public.imagen_ejercicio OVERRIDING SYSTEM VALUE VALUES (14, '"https://drive.google.com/uc?export=view&id=1dMwVyzKZaTp612onhUZD0mfF1iyGiNaT"');
+INSERT INTO public.imagen_ejercicio OVERRIDING SYSTEM VALUE VALUES (15, '"https://drive.google.com/uc?export=view&id=1dMwVyzKZaTp612onhUZD0mfF1iyGiNaT"');
+INSERT INTO public.imagen_ejercicio OVERRIDING SYSTEM VALUE VALUES (16, '"https://drive.google.com/uc?export=view&id=1dMwVyzKZaTp612onhUZD0mfF1iyGiNaT"');
 
 
 --

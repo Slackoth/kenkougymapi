@@ -3,6 +3,7 @@ package uca.ungallocontenis.kenkougymapi.controller.KenkouUser;
 import org.apache.commons.collections4.IterableUtils;
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -26,7 +27,7 @@ public class KenkouUserController {
 
     @GetMapping("/obtenerUsuario")
     public String obtenerUsuario(String username) {
-        return service.obtenerUsuario(username);
+        return service.obtenerUsuario(username); 
     }
 
     @GetMapping("/obtenerObjetivoActual")
@@ -34,9 +35,9 @@ public class KenkouUserController {
         return service.obtenerObjetivoActual(username);
     }
     
-    @PostMapping("/insertarProgreso")
+    @PostMapping(path = "/insertarProgreso", consumes = {MediaType.APPLICATION_JSON_VALUE})
     public String insertarProgreso(@RequestBody Progreso progreso) {
-        return "";
+        return service.insertarProgreso(progreso);
     }
     
     @GetMapping("/obtenerProgreso")

@@ -5,7 +5,7 @@
 -- Dumped from database version 14.5
 -- Dumped by pg_dump version 14.5
 
--- Started on 2022-11-02 11:27:11
+-- Started on 2022-11-02 14:12:22
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -26,7 +26,7 @@ SET row_security = off;
 CREATE SCHEMA public;
 
 
-ALTER SCHEMA public OWNER TO kenkougym;
+ALTER SCHEMA public OWNER TO postgres;
 
 SET default_tablespace = '';
 
@@ -777,22 +777,20 @@ ALTER TABLE public.usuario_objetivo OWNER TO kenkougym;
 -- Data for Name: categoriaingrediente; Type: TABLE DATA; Schema: public; Owner: kenkougym
 --
 
-COPY public.categoriaingrediente (id, descripcion) FROM stdin;
-1	VERDURAS Y HORTALIZAS
-2	FRUTAS
-3	FRUTOS SECOS
-4	LACTEOS Y DERIVADOS
-5	CARNES, CAZA Y EMBUTIDOS
-6	PESCADOS, CRUSTÁCEOS Y MARISCOS
-7	AZUCARES Y DULCES
-8	CEREALES Y DERIVADOS
-9	LEGUMBRES
-10	HUEVOS
-11	PASTELERÍA
-12	BEBIDAS
-13	ACEITES Y GRASAS
-14	SALSAS Y CONDIMENTOS
-\.
+INSERT INTO public.categoriaingrediente OVERRIDING SYSTEM VALUE VALUES (1, 'VERDURAS Y HORTALIZAS');
+INSERT INTO public.categoriaingrediente OVERRIDING SYSTEM VALUE VALUES (2, 'FRUTAS');
+INSERT INTO public.categoriaingrediente OVERRIDING SYSTEM VALUE VALUES (3, 'FRUTOS SECOS');
+INSERT INTO public.categoriaingrediente OVERRIDING SYSTEM VALUE VALUES (4, 'LACTEOS Y DERIVADOS');
+INSERT INTO public.categoriaingrediente OVERRIDING SYSTEM VALUE VALUES (5, 'CARNES, CAZA Y EMBUTIDOS');
+INSERT INTO public.categoriaingrediente OVERRIDING SYSTEM VALUE VALUES (6, 'PESCADOS, CRUSTÁCEOS Y MARISCOS');
+INSERT INTO public.categoriaingrediente OVERRIDING SYSTEM VALUE VALUES (7, 'AZUCARES Y DULCES');
+INSERT INTO public.categoriaingrediente OVERRIDING SYSTEM VALUE VALUES (8, 'CEREALES Y DERIVADOS');
+INSERT INTO public.categoriaingrediente OVERRIDING SYSTEM VALUE VALUES (9, 'LEGUMBRES');
+INSERT INTO public.categoriaingrediente OVERRIDING SYSTEM VALUE VALUES (10, 'HUEVOS');
+INSERT INTO public.categoriaingrediente OVERRIDING SYSTEM VALUE VALUES (11, 'PASTELERÍA');
+INSERT INTO public.categoriaingrediente OVERRIDING SYSTEM VALUE VALUES (12, 'BEBIDAS');
+INSERT INTO public.categoriaingrediente OVERRIDING SYSTEM VALUE VALUES (13, 'ACEITES Y GRASAS');
+INSERT INTO public.categoriaingrediente OVERRIDING SYSTEM VALUE VALUES (14, 'SALSAS Y CONDIMENTOS');
 
 
 --
@@ -801,21 +799,19 @@ COPY public.categoriaingrediente (id, descripcion) FROM stdin;
 -- Data for Name: ejercicio; Type: TABLE DATA; Schema: public; Owner: kenkougym
 --
 
-COPY public.ejercicio (id, nombre) FROM stdin;
-1	DOMINADAS
-2	SENTADILLAS CON PESO
-3	FLEXION DE PECHO
-4	FONDOS EN PARALELAS
-5	JUMPING JACKS
-6	SENTADILLA ISOMETRICAS
-7	SALTAR CUERDA
-8	PLANCHA
-9	SENTADILLA
-10	ZANCADA CON PESO
-11	DEADBUG
-12	ELEVACION DE CADERA
-13	FROG JUMPS
-\.
+INSERT INTO public.ejercicio OVERRIDING SYSTEM VALUE VALUES (1, 'DOMINADAS');
+INSERT INTO public.ejercicio OVERRIDING SYSTEM VALUE VALUES (2, 'SENTADILLAS CON PESO');
+INSERT INTO public.ejercicio OVERRIDING SYSTEM VALUE VALUES (3, 'FLEXION DE PECHO');
+INSERT INTO public.ejercicio OVERRIDING SYSTEM VALUE VALUES (4, 'FONDOS EN PARALELAS');
+INSERT INTO public.ejercicio OVERRIDING SYSTEM VALUE VALUES (5, 'JUMPING JACKS');
+INSERT INTO public.ejercicio OVERRIDING SYSTEM VALUE VALUES (6, 'SENTADILLA ISOMETRICAS');
+INSERT INTO public.ejercicio OVERRIDING SYSTEM VALUE VALUES (7, 'SALTAR CUERDA');
+INSERT INTO public.ejercicio OVERRIDING SYSTEM VALUE VALUES (8, 'PLANCHA');
+INSERT INTO public.ejercicio OVERRIDING SYSTEM VALUE VALUES (9, 'SENTADILLA');
+INSERT INTO public.ejercicio OVERRIDING SYSTEM VALUE VALUES (10, 'ZANCADA CON PESO');
+INSERT INTO public.ejercicio OVERRIDING SYSTEM VALUE VALUES (11, 'DEADBUG');
+INSERT INTO public.ejercicio OVERRIDING SYSTEM VALUE VALUES (12, 'ELEVACION DE CADERA');
+INSERT INTO public.ejercicio OVERRIDING SYSTEM VALUE VALUES (13, 'FROG JUMPS');
 
 
 --
@@ -824,10 +820,8 @@ COPY public.ejercicio (id, nombre) FROM stdin;
 -- Data for Name: ejercicio_x_musculo; Type: TABLE DATA; Schema: public; Owner: kenkougym
 --
 
-COPY public.ejercicio_x_musculo (id, idmusculo, idejercicio, idimagen, idtrutina, series, repeticiones, peso_recomendado, tiempo_recomendado, veces_xsemana, otras_indicaciones, dificultad, url) FROM stdin;
-1	1	1	1	1	5	10	10	2 minutos	3 veces	No descansar mas de 1 minuto	Intermedio	https://www.youtube.com/watch?v=-oqAU5VxFWs
-2	2	2	2	2	4	8	10	2 minutos	3 veces	No descansar mas de 1 minuto	Intermedio	https://www.youtube.com/watch?v=-oqAU5VxFWs
-\.
+INSERT INTO public.ejercicio_x_musculo OVERRIDING SYSTEM VALUE VALUES (1, 1, 1, 1, 1, 5, 10, 10, '2 minutos', '3 veces', 'No descansar mas de 1 minuto', 'Intermedio', 'https://www.youtube.com/watch?v=-oqAU5VxFWs');
+INSERT INTO public.ejercicio_x_musculo OVERRIDING SYSTEM VALUE VALUES (2, 2, 2, 2, 2, 4, 8, 10, '2 minutos', '3 veces', 'No descansar mas de 1 minuto', 'Intermedio', 'https://www.youtube.com/watch?v=-oqAU5VxFWs');
 
 
 --
@@ -836,8 +830,6 @@ COPY public.ejercicio_x_musculo (id, idmusculo, idejercicio, idimagen, idtrutina
 -- Data for Name: ejercicio_x_rutina; Type: TABLE DATA; Schema: public; Owner: kenkougym
 --
 
-COPY public.ejercicio_x_rutina (idrutina, idemusculo, id_rutina, id) FROM stdin;
-\.
 
 
 --
@@ -846,11 +838,9 @@ COPY public.ejercicio_x_rutina (idrutina, idemusculo, id_rutina, id) FROM stdin;
 -- Data for Name: estiloalimenticio; Type: TABLE DATA; Schema: public; Owner: kenkougym
 --
 
-COPY public.estiloalimenticio (id, nombre) FROM stdin;
-2	VEGETARIANO
-3	VEGANO
-1	CARNIVORO
-\.
+INSERT INTO public.estiloalimenticio OVERRIDING SYSTEM VALUE VALUES (2, 'VEGETARIANO');
+INSERT INTO public.estiloalimenticio OVERRIDING SYSTEM VALUE VALUES (3, 'VEGANO');
+INSERT INTO public.estiloalimenticio OVERRIDING SYSTEM VALUE VALUES (1, 'CARNIVORO');
 
 
 --
@@ -859,17 +849,15 @@ COPY public.estiloalimenticio (id, nombre) FROM stdin;
 -- Data for Name: fotografia; Type: TABLE DATA; Schema: public; Owner: kenkougym
 --
 
-COPY public.fotografia (id, foto) FROM stdin;
-1	..\\kenkougymapp\\src\\componentes\\recipes\\imagenes\\tostadasfrancesas1.jpg
-2	..\\kenkougymapp\\src\\componentes\\recipes\\imagenes\\francesasveg.jpeg
-3	..\\kenkougymapp\\src\\componentes\\recipes\\imagenes\\Grilled-chicken-burgers2-500x375.jpg
-4	..\\kenkougymapp\\src\\componentes\\recipes\\imagenes\\ensaladas-ricas-en-proteina_bbcfc08b_900x900.jpg
-5	..\\kenkougymapp\\src\\componentes\\recipes\\imagenes\\espagueti_con_carne_molida_51623_orig.jpg
-6	..\\kenkougymapp\\src\\componentes\\recipes\\imagenes\\fettuciniconpollo.jpeg
-7	..\\kenkougymapp\\src\\componentes\\recipes\\imagenes\\protein-pizza-3-web.jpg
-8	..\\kenkougymapp\\src\\componentes\\recipes\\imagenes\\1.jpg
-9	..\\kenkougymapp\\src\\componentes\\recipes\\imagenes\\1.jpg
-\.
+INSERT INTO public.fotografia OVERRIDING SYSTEM VALUE VALUES (1, '..\kenkougymapp\src\componentes\recipes\imagenes\tostadasfrancesas1.jpg');
+INSERT INTO public.fotografia OVERRIDING SYSTEM VALUE VALUES (2, '..\kenkougymapp\src\componentes\recipes\imagenes\francesasveg.jpeg');
+INSERT INTO public.fotografia OVERRIDING SYSTEM VALUE VALUES (3, '..\kenkougymapp\src\componentes\recipes\imagenes\Grilled-chicken-burgers2-500x375.jpg');
+INSERT INTO public.fotografia OVERRIDING SYSTEM VALUE VALUES (4, '..\kenkougymapp\src\componentes\recipes\imagenes\ensaladas-ricas-en-proteina_bbcfc08b_900x900.jpg');
+INSERT INTO public.fotografia OVERRIDING SYSTEM VALUE VALUES (5, '..\kenkougymapp\src\componentes\recipes\imagenes\espagueti_con_carne_molida_51623_orig.jpg');
+INSERT INTO public.fotografia OVERRIDING SYSTEM VALUE VALUES (6, '..\kenkougymapp\src\componentes\recipes\imagenes\fettuciniconpollo.jpeg');
+INSERT INTO public.fotografia OVERRIDING SYSTEM VALUE VALUES (7, '..\kenkougymapp\src\componentes\recipes\imagenes\protein-pizza-3-web.jpg');
+INSERT INTO public.fotografia OVERRIDING SYSTEM VALUE VALUES (8, '..\kenkougymapp\src\componentes\recipes\imagenes\1.jpg');
+INSERT INTO public.fotografia OVERRIDING SYSTEM VALUE VALUES (9, '..\kenkougymapp\src\componentes\recipes\imagenes\1.jpg');
 
 
 --
@@ -878,17 +866,15 @@ COPY public.fotografia (id, foto) FROM stdin;
 -- Data for Name: fotografiaxreceta; Type: TABLE DATA; Schema: public; Owner: kenkougym
 --
 
-COPY public.fotografiaxreceta (id_receta, id_fotografia) FROM stdin;
-1	1
-2	2
-3	3
-4	4
-5	5
-6	6
-7	7
-8	8
-9	9
-\.
+INSERT INTO public.fotografiaxreceta VALUES (1, 1);
+INSERT INTO public.fotografiaxreceta VALUES (2, 2);
+INSERT INTO public.fotografiaxreceta VALUES (3, 3);
+INSERT INTO public.fotografiaxreceta VALUES (4, 4);
+INSERT INTO public.fotografiaxreceta VALUES (5, 5);
+INSERT INTO public.fotografiaxreceta VALUES (6, 6);
+INSERT INTO public.fotografiaxreceta VALUES (7, 7);
+INSERT INTO public.fotografiaxreceta VALUES (8, 8);
+INSERT INTO public.fotografiaxreceta VALUES (9, 9);
 
 
 --
@@ -897,18 +883,16 @@ COPY public.fotografiaxreceta (id_receta, id_fotografia) FROM stdin;
 -- Data for Name: imagen_ejercicio; Type: TABLE DATA; Schema: public; Owner: kenkougym
 --
 
-COPY public.imagen_ejercicio (id, imagen) FROM stdin;
-1	../imagenes/rutines/piernas.jpg
-2	../imagenes/rutines/predicador.jpg
-3	../imagenes/rutines/espalda.jpg
-4	../imagenes/rutines/hombros.jpg
-5	../imagenes/rutines/pectorales.jpg
-6	../imagenes/rutines/rutina_brazos.jpg
-7	../imagenes/rutines/rutina_brazos.jpg
-8	../imagenes/rutines/rutina_espalda.jpg
-9	../imagenes/rutines/rutina_hombros.jpg
-10	../imagenes/rutines/rutina_pectorales.jpg
-\.
+INSERT INTO public.imagen_ejercicio OVERRIDING SYSTEM VALUE VALUES (1, '../imagenes/rutines/piernas.jpg');
+INSERT INTO public.imagen_ejercicio OVERRIDING SYSTEM VALUE VALUES (2, '../imagenes/rutines/predicador.jpg');
+INSERT INTO public.imagen_ejercicio OVERRIDING SYSTEM VALUE VALUES (3, '../imagenes/rutines/espalda.jpg');
+INSERT INTO public.imagen_ejercicio OVERRIDING SYSTEM VALUE VALUES (4, '../imagenes/rutines/hombros.jpg');
+INSERT INTO public.imagen_ejercicio OVERRIDING SYSTEM VALUE VALUES (5, '../imagenes/rutines/pectorales.jpg');
+INSERT INTO public.imagen_ejercicio OVERRIDING SYSTEM VALUE VALUES (6, '../imagenes/rutines/rutina_brazos.jpg');
+INSERT INTO public.imagen_ejercicio OVERRIDING SYSTEM VALUE VALUES (7, '../imagenes/rutines/rutina_brazos.jpg');
+INSERT INTO public.imagen_ejercicio OVERRIDING SYSTEM VALUE VALUES (8, '../imagenes/rutines/rutina_espalda.jpg');
+INSERT INTO public.imagen_ejercicio OVERRIDING SYSTEM VALUE VALUES (9, '../imagenes/rutines/rutina_hombros.jpg');
+INSERT INTO public.imagen_ejercicio OVERRIDING SYSTEM VALUE VALUES (10, '../imagenes/rutines/rutina_pectorales.jpg');
 
 
 --
@@ -917,32 +901,30 @@ COPY public.imagen_ejercicio (id, imagen) FROM stdin;
 -- Data for Name: ingrediente; Type: TABLE DATA; Schema: public; Owner: kenkougym
 --
 
-COPY public.ingrediente (id, nombre_alimento, calorias, proteinas, carbohidratos, fibra, grasasaturada, categoria, categoria_id, vitamina_a, vitamina_b1, vitamina_b12, vitamina_b2, vitamina_b9, vitamina_c, vitamina_d, vitamina_e, vitamina_k) FROM stdin;
-1	Pan integral	69	2.72	12.91	1.9	1.1	8	8	\N	\N	\N	\N	\N	\N	\N	\N	\N
-2	Claras de Huevo	141	12	0.75	0	9.7	10	10	\N	\N	\N	\N	\N	\N	\N	\N	\N
-3	Canela	18	0.26	5.43	3.7	0.22	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N
-4	Stevia	4	0	1	0	0	7	7	\N	\N	\N	\N	\N	\N	\N	\N	\N
-5	Extracto de vainilla	12	0	0.53	0	0	14	14	\N	\N	\N	\N	\N	\N	\N	\N	\N
-6	Fresa	32	0.67	7.68	2	0.3	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N
-7	Jarabe bajo en calorias	15	0	1	0	0	7	7	\N	\N	\N	\N	\N	\N	\N	\N	\N
-8	Polvo de Goma Guar	5	0	1	1	0	7	7	\N	\N	\N	\N	\N	\N	\N	\N	\N
-9	Pechuga de pollo	975	147.5	0	0	38.6	5	5	\N	\N	\N	\N	\N	\N	\N	\N	\N
-10	Gravy	25	1.7	5	0	0	14	14	\N	\N	\N	\N	\N	\N	\N	\N	\N
-11	Tomate	18	0.8	3.9	1.2	0.2	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N
-12	Mayonesa	49	0.12	1.2	0	5	14	14	\N	\N	\N	\N	\N	\N	\N	\N	\N
-13	Carne magra de res	135	21.91	0	0	4.62	5	5	\N	\N	\N	\N	\N	\N	\N	\N	\N
-14	Salsa de tomate	15	0.26	3.76	0	0.06	14	14	\N	\N	\N	\N	\N	\N	\N	\N	\N
-15	Fideos	210	7.22	40	1.9	3.3	8	8	\N	\N	\N	\N	\N	\N	\N	\N	\N
-16	Brocoli	31	2.57	6.0	2.4	0.34	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N
-17	Crema Light 	30	0.5	1	0	2.6	4	4	\N	\N	\N	\N	\N	\N	\N	\N	\N
-18	Fetuccini	220	8	42.95	2.5	1.29	8	8	\N	\N	\N	\N	\N	\N	\N	\N	\N
-19	Queso Bajo en calorias	173	24.5	1.91	0	7	4	4	\N	\N	\N	\N	\N	\N	\N	\N	\N
-20	Salsa de pizza light	15	0.2	3.7	0	0.06	14	14	\N	\N	\N	\N	\N	\N	\N	\N	\N
-21	Tortilla integral	122	3.3	21	2.8	2.9	8	8	\N	\N	\N	\N	\N	\N	\N	\N	\N
-22	Queso Cottage	72	12	2.72	0	1	4	4	\N	\N	\N	\N	\N	\N	\N	\N	\N
-23	Leche de almendras	40	1.51	1.4	0.8	3.58	4	4	\N	\N	\N	\N	\N	\N	\N	\N	\N
-24	Gelatina baja en calorias	10	0.82	4.13	0	0	11	11	\N	\N	\N	\N	\N	\N	\N	\N	\N
-\.
+INSERT INTO public.ingrediente OVERRIDING SYSTEM VALUE VALUES (1, 'Pan integral', 69, 2.72, 12.91, 1.9, 1.1, 8, 8, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO public.ingrediente OVERRIDING SYSTEM VALUE VALUES (2, 'Claras de Huevo', 141, 12, 0.75, 0, 9.7, 10, 10, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO public.ingrediente OVERRIDING SYSTEM VALUE VALUES (3, 'Canela', 18, 0.26, 5.43, 3.7, 0.22, 1, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO public.ingrediente OVERRIDING SYSTEM VALUE VALUES (4, 'Stevia', 4, 0, 1, 0, 0, 7, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO public.ingrediente OVERRIDING SYSTEM VALUE VALUES (5, 'Extracto de vainilla', 12, 0, 0.53, 0, 0, 14, 14, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO public.ingrediente OVERRIDING SYSTEM VALUE VALUES (6, 'Fresa', 32, 0.67, 7.68, 2, 0.3, 2, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO public.ingrediente OVERRIDING SYSTEM VALUE VALUES (7, 'Jarabe bajo en calorias', 15, 0, 1, 0, 0, 7, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO public.ingrediente OVERRIDING SYSTEM VALUE VALUES (8, 'Polvo de Goma Guar', 5, 0, 1, 1, 0, 7, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO public.ingrediente OVERRIDING SYSTEM VALUE VALUES (9, 'Pechuga de pollo', 975, 147.5, 0, 0, 38.6, 5, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO public.ingrediente OVERRIDING SYSTEM VALUE VALUES (10, 'Gravy', 25, 1.7, 5, 0, 0, 14, 14, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO public.ingrediente OVERRIDING SYSTEM VALUE VALUES (11, 'Tomate', 18, 0.8, 3.9, 1.2, 0.2, 1, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO public.ingrediente OVERRIDING SYSTEM VALUE VALUES (12, 'Mayonesa', 49, 0.12, 1.2, 0, 5, 14, 14, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO public.ingrediente OVERRIDING SYSTEM VALUE VALUES (13, 'Carne magra de res', 135, 21.91, 0, 0, 4.62, 5, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO public.ingrediente OVERRIDING SYSTEM VALUE VALUES (14, 'Salsa de tomate', 15, 0.26, 3.76, 0, 0.06, 14, 14, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO public.ingrediente OVERRIDING SYSTEM VALUE VALUES (15, 'Fideos', 210, 7.22, 40, 1.9, 3.3, 8, 8, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO public.ingrediente OVERRIDING SYSTEM VALUE VALUES (16, 'Brocoli', 31, 2.57, 6.0, 2.4, 0.34, 1, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO public.ingrediente OVERRIDING SYSTEM VALUE VALUES (17, 'Crema Light ', 30, 0.5, 1, 0, 2.6, 4, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO public.ingrediente OVERRIDING SYSTEM VALUE VALUES (18, 'Fetuccini', 220, 8, 42.95, 2.5, 1.29, 8, 8, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO public.ingrediente OVERRIDING SYSTEM VALUE VALUES (19, 'Queso Bajo en calorias', 173, 24.5, 1.91, 0, 7, 4, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO public.ingrediente OVERRIDING SYSTEM VALUE VALUES (20, 'Salsa de pizza light', 15, 0.2, 3.7, 0, 0.06, 14, 14, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO public.ingrediente OVERRIDING SYSTEM VALUE VALUES (21, 'Tortilla integral', 122, 3.3, 21, 2.8, 2.9, 8, 8, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO public.ingrediente OVERRIDING SYSTEM VALUE VALUES (22, 'Queso Cottage', 72, 12, 2.72, 0, 1, 4, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO public.ingrediente OVERRIDING SYSTEM VALUE VALUES (23, 'Leche de almendras', 40, 1.51, 1.4, 0.8, 3.58, 4, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO public.ingrediente OVERRIDING SYSTEM VALUE VALUES (24, 'Gelatina baja en calorias', 10, 0.82, 4.13, 0, 0, 11, 11, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 
 --
@@ -951,45 +933,43 @@ COPY public.ingrediente (id, nombre_alimento, calorias, proteinas, carbohidratos
 -- Data for Name: ingredientexreceta; Type: TABLE DATA; Schema: public; Owner: kenkougym
 --
 
-COPY public.ingredientexreceta (id_ingrediente, id_receta, gramos) FROM stdin;
-1	1	50
-2	1	50
-3	1	50
-4	1	50
-5	1	50
-6	1	50
-7	1	50
-1	2	50
-2	2	50
-3	2	50
-4	2	50
-5	2	50
-6	2	50
-7	2	50
-8	2	50
-1	3	50
-9	3	50
-10	3	50
-13	4	50
-10	4	50
-12	4	50
-13	5	50
-14	5	50
-15	5	50
-9	6	50
-16	6	50
-17	6	50
-18	6	50
-19	7	50
-20	7	50
-21	7	50
-22	8	50
-23	8	50
-8	8	50
-22	9	50
-23	9	50
-8	9	50
-\.
+INSERT INTO public.ingredientexreceta VALUES (1, 1, 50);
+INSERT INTO public.ingredientexreceta VALUES (2, 1, 50);
+INSERT INTO public.ingredientexreceta VALUES (3, 1, 50);
+INSERT INTO public.ingredientexreceta VALUES (4, 1, 50);
+INSERT INTO public.ingredientexreceta VALUES (5, 1, 50);
+INSERT INTO public.ingredientexreceta VALUES (6, 1, 50);
+INSERT INTO public.ingredientexreceta VALUES (7, 1, 50);
+INSERT INTO public.ingredientexreceta VALUES (1, 2, 50);
+INSERT INTO public.ingredientexreceta VALUES (2, 2, 50);
+INSERT INTO public.ingredientexreceta VALUES (3, 2, 50);
+INSERT INTO public.ingredientexreceta VALUES (4, 2, 50);
+INSERT INTO public.ingredientexreceta VALUES (5, 2, 50);
+INSERT INTO public.ingredientexreceta VALUES (6, 2, 50);
+INSERT INTO public.ingredientexreceta VALUES (7, 2, 50);
+INSERT INTO public.ingredientexreceta VALUES (8, 2, 50);
+INSERT INTO public.ingredientexreceta VALUES (1, 3, 50);
+INSERT INTO public.ingredientexreceta VALUES (9, 3, 50);
+INSERT INTO public.ingredientexreceta VALUES (10, 3, 50);
+INSERT INTO public.ingredientexreceta VALUES (13, 4, 50);
+INSERT INTO public.ingredientexreceta VALUES (10, 4, 50);
+INSERT INTO public.ingredientexreceta VALUES (12, 4, 50);
+INSERT INTO public.ingredientexreceta VALUES (13, 5, 50);
+INSERT INTO public.ingredientexreceta VALUES (14, 5, 50);
+INSERT INTO public.ingredientexreceta VALUES (15, 5, 50);
+INSERT INTO public.ingredientexreceta VALUES (9, 6, 50);
+INSERT INTO public.ingredientexreceta VALUES (16, 6, 50);
+INSERT INTO public.ingredientexreceta VALUES (17, 6, 50);
+INSERT INTO public.ingredientexreceta VALUES (18, 6, 50);
+INSERT INTO public.ingredientexreceta VALUES (19, 7, 50);
+INSERT INTO public.ingredientexreceta VALUES (20, 7, 50);
+INSERT INTO public.ingredientexreceta VALUES (21, 7, 50);
+INSERT INTO public.ingredientexreceta VALUES (22, 8, 50);
+INSERT INTO public.ingredientexreceta VALUES (23, 8, 50);
+INSERT INTO public.ingredientexreceta VALUES (8, 8, 50);
+INSERT INTO public.ingredientexreceta VALUES (22, 9, 50);
+INSERT INTO public.ingredientexreceta VALUES (23, 9, 50);
+INSERT INTO public.ingredientexreceta VALUES (8, 9, 50);
 
 
 --
@@ -998,10 +978,8 @@ COPY public.ingredientexreceta (id_ingrediente, id_receta, gramos) FROM stdin;
 -- Data for Name: kenkou_role; Type: TABLE DATA; Schema: public; Owner: kenkougym
 --
 
-COPY public.kenkou_role (role_code, role_name) FROM stdin;
-ROLE_ADMIN	User administrator
-ROLE_USER	User
-\.
+INSERT INTO public.kenkou_role VALUES ('ROLE_ADMIN', 'User administrator');
+INSERT INTO public.kenkou_role VALUES ('ROLE_USER', 'User');
 
 
 --
@@ -1010,9 +988,7 @@ ROLE_USER	User
 -- Data for Name: kenkou_user; Type: TABLE DATA; Schema: public; Owner: kenkougym
 --
 
-COPY public.kenkou_user (username, email, first_name, last_name, password, enabled, locked, credentials_expiration, credentials_ex, medida_altura, sexo) FROM stdin;
-00082318	00082318@uca.edu.sv	Luis	Calderon	$2a$12$psRd3h4EdFEO.b9QwYiRveTsxq4jrd1zFVTQNOkIG5Hx8i3LdPyE.	t	f	2023-02-21	\N	168	M
-\.
+INSERT INTO public.kenkou_user VALUES ('00082318', '00082318@uca.edu.sv', 'Luis', 'Calderon', '$2a$12$psRd3h4EdFEO.b9QwYiRveTsxq4jrd1zFVTQNOkIG5Hx8i3LdPyE.', true, false, '2023-02-21', NULL, 168, 'M');
 
 
 --
@@ -1021,20 +997,18 @@ COPY public.kenkou_user (username, email, first_name, last_name, password, enabl
 -- Data for Name: musculo; Type: TABLE DATA; Schema: public; Owner: kenkougym
 --
 
-COPY public.musculo (id, nombre) FROM stdin;
-1	BICEPS
-2	TRICEPS
-3	HOMBROS
-4	ISQUIOS
-5	GLUTEOS
-6	ABDOMINALES
-7	PECTORAL
-8	DORSAL
-9	CUADRICEPS
-10	MUSCULO DEL ANTEBRAZO
-11	MUSCULO DEL CUELLO
-12	GEMELOS
-\.
+INSERT INTO public.musculo OVERRIDING SYSTEM VALUE VALUES (1, 'BICEPS');
+INSERT INTO public.musculo OVERRIDING SYSTEM VALUE VALUES (2, 'TRICEPS');
+INSERT INTO public.musculo OVERRIDING SYSTEM VALUE VALUES (3, 'HOMBROS');
+INSERT INTO public.musculo OVERRIDING SYSTEM VALUE VALUES (4, 'ISQUIOS');
+INSERT INTO public.musculo OVERRIDING SYSTEM VALUE VALUES (5, 'GLUTEOS');
+INSERT INTO public.musculo OVERRIDING SYSTEM VALUE VALUES (6, 'ABDOMINALES');
+INSERT INTO public.musculo OVERRIDING SYSTEM VALUE VALUES (7, 'PECTORAL');
+INSERT INTO public.musculo OVERRIDING SYSTEM VALUE VALUES (8, 'DORSAL');
+INSERT INTO public.musculo OVERRIDING SYSTEM VALUE VALUES (9, 'CUADRICEPS');
+INSERT INTO public.musculo OVERRIDING SYSTEM VALUE VALUES (10, 'MUSCULO DEL ANTEBRAZO');
+INSERT INTO public.musculo OVERRIDING SYSTEM VALUE VALUES (11, 'MUSCULO DEL CUELLO');
+INSERT INTO public.musculo OVERRIDING SYSTEM VALUE VALUES (12, 'GEMELOS');
 
 
 --
@@ -1043,11 +1017,9 @@ COPY public.musculo (id, nombre) FROM stdin;
 -- Data for Name: objetivo; Type: TABLE DATA; Schema: public; Owner: kenkougym
 --
 
-COPY public.objetivo (id, nombre) FROM stdin;
-1	BAJAR DE PESO
-2	AUMENTAR MASA MUSCULAR
-3	TONIFICAR
-\.
+INSERT INTO public.objetivo OVERRIDING SYSTEM VALUE VALUES (1, 'BAJAR DE PESO');
+INSERT INTO public.objetivo OVERRIDING SYSTEM VALUE VALUES (2, 'AUMENTAR MASA MUSCULAR');
+INSERT INTO public.objetivo OVERRIDING SYSTEM VALUE VALUES (3, 'TONIFICAR');
 
 
 --
@@ -1056,9 +1028,7 @@ COPY public.objetivo (id, nombre) FROM stdin;
 -- Data for Name: planalimenticio; Type: TABLE DATA; Schema: public; Owner: kenkougym
 --
 
-COPY public.planalimenticio (id, nombre, estiloalimentacion, objetivo, estilo_alimentacion_id) FROM stdin;
-1	Plan A	1	1	\N
-\.
+INSERT INTO public.planalimenticio OVERRIDING SYSTEM VALUE VALUES (1, 'Plan A', 1, 1, NULL);
 
 
 --
@@ -1067,8 +1037,6 @@ COPY public.planalimenticio (id, nombre, estiloalimentacion, objetivo, estilo_al
 -- Data for Name: planalimenticio_recetas; Type: TABLE DATA; Schema: public; Owner: kenkougym
 --
 
-COPY public.planalimenticio_recetas (plan_alimenticio_id, recetas_id) FROM stdin;
-\.
 
 
 --
@@ -1077,9 +1045,7 @@ COPY public.planalimenticio_recetas (plan_alimenticio_id, recetas_id) FROM stdin
 -- Data for Name: planxreceta; Type: TABLE DATA; Schema: public; Owner: kenkougym
 --
 
-COPY public.planxreceta (id_receta, id_plan) FROM stdin;
-4	1
-\.
+INSERT INTO public.planxreceta VALUES (4, 1);
 
 
 --
@@ -1088,13 +1054,11 @@ COPY public.planxreceta (id_receta, id_plan) FROM stdin;
 -- Data for Name: progreso; Type: TABLE DATA; Schema: public; Owner: kenkougym
 --
 
-COPY public.progreso (id_progreso, username, peso, medida_pecho, medida_brazo_der, medida_pierna_der, diametro_cintura, fecha, porcentaje_grasa, medida_cuello, diametro_caderas, medida_brazo_izq, medida_pierna_izq) FROM stdin;
-1	00082318	185	30	10	15	60	2022-05-05	0	37	0	10	15
-2	00082318	183	31.2	11.2	17	60	2022-06-06	0	37	0	11.2	17
-3	00082318	184	31.7	12	17.2	58	2022-07-07	0	36.8	0	12	17.2
-4	00082318	181	31.7	12.5	17.5	56	2022-08-08	0	36.8	0	12.5	17.5
-5	00082318	181	31.7	12.7	17.9	55	2022-09-09	0	36.7	0	12.7	17.9
-\.
+INSERT INTO public.progreso OVERRIDING SYSTEM VALUE VALUES (1, '00082318', 185, 30, 10, 15, 60, '2022-05-05', 0, 37, 0, 10, 15);
+INSERT INTO public.progreso OVERRIDING SYSTEM VALUE VALUES (2, '00082318', 183, 31.2, 11.2, 17, 60, '2022-06-06', 0, 37, 0, 11.2, 17);
+INSERT INTO public.progreso OVERRIDING SYSTEM VALUE VALUES (3, '00082318', 184, 31.7, 12, 17.2, 58, '2022-07-07', 0, 36.8, 0, 12, 17.2);
+INSERT INTO public.progreso OVERRIDING SYSTEM VALUE VALUES (4, '00082318', 181, 31.7, 12.5, 17.5, 56, '2022-08-08', 0, 36.8, 0, 12.5, 17.5);
+INSERT INTO public.progreso OVERRIDING SYSTEM VALUE VALUES (5, '00082318', 181, 31.7, 12.7, 17.9, 55, '2022-09-09', 0, 36.7, 0, 12.7, 17.9);
 
 
 --
@@ -1103,17 +1067,140 @@ COPY public.progreso (id_progreso, username, peso, medida_pecho, medida_brazo_de
 -- Data for Name: receta; Type: TABLE DATA; Schema: public; Owner: kenkougym
 --
 
-COPY public.receta (id, nombre, linkvideo, instrucciones, id_objetivo, tiempo_comida, objetivo_id, tiempo_comida_id, tablanutrionalid) FROM stdin;
-1	Tostadas Francesas Anabolicas	https://youtu.be/06O5vtVQEOE	\r\n## Preparación\r\n\r\nEn un deposito agregar 2 huevos, una cucharada de canela y una cucharada de extracto de vainilla y mezclarlo bien. \r\nPreparar el sarten en fuego medio y aplicar aceite (de preferencia mediante spray)\r\nMojar las rebanadas de pan en la mezcla y poner cada uno de ellas en el sarten, 3 a 4 minutos por lado. \r\n\r\nAdemas, se puede agregar un scoop de tu batido proteico preferido a la mezcla.\r\n\r\n## Plato\r\nServir estas tostadas en un plato con sus diferentes complementos, en este caso se agregan fresas pero puede agregarse cualquier tipo de fruta y un Jarabe de baja calorías\r\n	1	1	\N	\N	1
-2	Tostadas Francesas Vegetarianas de Fresa	https://youtu.be/06O5vtVQEOE	\r\n## Preparación\r\n\r\nEn una licuadora agregar 2 rebanadas de pan, 2 copas de claras de huevo, 1 cucharada de goma guar en polvo, endulzante, extracto de vainilla y canela. \r\nMezclar hasta que tenga una consistencia uniforme. \r\nEs recomendable degar reposar por 2 a 3 horas la mezcla para mejorar su consistencia pero esto es opcional.\r\nPoner la sartén a una temperatura media, agregar aceite (de preferencia en spray),Y agregar la mezcla a la sarten, cocinar por 1-2 minutos. Luego agregarle las fresas partidas encima y cocinar el otro lado por uno a dos minutos. \r\nAdemas, se puede agregar un scoop de tu batido proteico preferido a la mezcla.\r\n\r\n## Plato\r\nServir estas tostadas en un plato con sus diferentes complementos, en este caso se agregan fresas pero puede agregarse cualquier tipo de fruta y un Jarabe de baja calorías\r\n	1	1	\N	\N	2
-3	Hamburguesa de pechuga de pollo	https://youtu.be/06O5vtVQEOE	\r\n## Preparación\r\n\r\n1. Si es de su preferencia se recomienda marinar la pechuga de pollo en la noche con condimientos al gusto. \r\n2. Poner la sarten a fuego medio y colocarle spray de aceite\r\n3. Agregar la pechuga de pollo y cocinarla hasta que este en punto medio (Esto se puede notar cuando cada lado este dorado o llegue a la temperatura interna  de 74 grados)\r\n4. Poner la salsa en un deposito para calentar en el microondas\r\n5. unir los panes, con vegetales al gusto y opcionalmente mostaza y salsa de tomate ketchup\r\n\r\nNota: Los macros estimados son descontando la cantidad de condimentos utilizados. \r\n\r\n## Plato\r\nServir en un plato, se puede acompañar con bebida natural al gusto. \r\n	1	2	\N	\N	3
-4	Ensalada proteica balanceada	https://youtu.be/06O5vtVQEOE	\r\n## Preparación\r\n\r\n1.cortar el tomate en rebanadas\r\n2.Preparar la sarten a calidad media colocar aceite en spray y cocinar la pechuga hasta termino medio\r\n3.Agregar 25g de pechuga.\r\n4. Agregar una cucharada de mayonesa light\r\n5. Opcional se pueden agregar cebolla al gusto. \r\n\r\n\r\n	1	2	\N	\N	4
-5	Fideos con carne magra	https://youtu.be/06O5vtVQEOE	\r\n## Preparación\r\n\r\n1. Calentar 4 cuartos de agua en fuego alto. Cuando el agua empiece a hervir debemos reducir el fuego a fuego bajo.ejercicio \r\n2. Agregar un paquete de pasta por persona, utilizar las instrucciones del empaque y al terminar se debe filtrar y poner a un lado\r\n3. En otro sarten se debe de poner a fuego medio y agregar aceite. \r\n4. Agregar Carne magra de res y cocinarlo hasta que ambos lados se encuentren bien cocinado. \r\n5. Calentar la salsa de tomate, para esto se puede utilizar el microondas.\r\n\r\n## Plato\r\nServir con pasta, carne y salsa juntos. \r\n\r\n\r\n	1	3	\N	\N	5
-6	Fettuccini de pechuga de pollo	https://youtu.be/06O5vtVQEOE	\r\n<h3> Preparación</h3>\r\n\r\n<ol>\r\n\t<li> Calentar 4 cuartos de agua en fuego alto. Cuando el agua empiece a hervir debvemos reducir el fuego a fuego bajo.ejercicio </li>\r\n\t<li> Agregar un paquete de fideos fettucini por persona, utilizar las instrucciones del empaque y al terminar se debe filtrar y poner a un lado </li>\r\n\t<li> En otro sarten se debe de poner a fuego medio y agregar aceite. </li>\r\n\t<li> Agregar pechuga en tiras y cocinarlo hasta que ambos lados se encuentren bien cocinado.</li>\r\n\t<li> Agregar chile verde al gusto para agregar sabor y color al plato. </li> \r\n\t<li> Hervir brocoli en agua por 5 minutos. </li>\r\n\t<li> Se puede agregar una chucharada de crema baja en calorías para mehjorrar su cremosidad </li> \r\n</ol>\r\n\r\n<h3> Plato </h3>\r\n\r\n<p>Servir con Fetuccini, Agregar carne de res y chile verde. En otro plato se puenden poner los brocolis si es encesario</p> \r\n\r\n\r\n	1	3	\N	\N	6
-7	Pizza Proteica	https://youtu.be/06O5vtVQEOE	\r\n<h3> Preparación</h3>\r\n\r\n<ol>\r\n\t<li> Calentar una sarten en fuego medio para poder saltear cebollas con un poco de aceite</li>\r\n\t<li> Al llegar al pundo de caramelizarlas dejarlas en un lado</li>\r\n\t<li> En el horno tostar la tortilla baja en calorías de su preferencia por 3 minutos a temperatura media. </li>\r\n\t<li> Agregar todos los ingredientes en la tortilla, agregar rebanadas finas de queso</li>\r\n\t<li> Luego hornear nuevamente la tortilla por otros tres minutos en la misma temperatura</li> \r\n\t<li> (Opcional) se puede agregar cualquier topping preferido </li> \r\n</ol>\r\n\r\n<p><u>Nota: Valores nutriciales no incluyen toppings extras agregados.</u></p>\r\n\r\n \r\n\r\n\r\n	1	3	\N	\N	7
-8	Buddin proteico de queso con chocolate	https://youtu.be/06O5vtVQEOE	\r\n<h3> Preparación</h3>\r\n\r\n<ol>\r\n\t<li>Poner 2 tazas de queso cottage, 4.5 tazas de leche de almednras, 2 cucharadas de gelatina, una cucharada de guar, Endulzante al gusto</li>\r\n\t<li> Agregar todos los ingredientes a una licuadora y licuiar por tres minutos a velocidad media-alta</li>\r\n\t<li> (Opcional)Agregar Polvo de batido de proteina basado en caseina de preferencia</li>\r\n\t<li> Colocar la mezcla en un deposito y colocarla en un regrigerador por 10 minutos </li>\r\n\t<li> Se puede agregar cualquier tipo de topping al gusto</li> \r\n</ol>\r\n\r\n<p><u>Nota: Valores nutriciales no incluyen toppings extras agregados.</u></p>\r\n\r\n \r\n\r\n\r\n	1	4	\N	\N	8
-9	Buddin proteico de queso con chocolate	https://youtu.be/06O5vtVQEOE	\r\n<h3> Preparación</h3>\r\n\r\n<ol>\r\n\t<li>Poner 2 tazas de queso cottage, 4.5 tazas de leche de almednras, 2 cucharadas de gelatina, una cucharada de guar, Endulzante al gusto</li>\r\n\t<li> Agregar todos los ingredientes a una licuadora y licuiar por tres minutos a velocidad media-alta</li>\r\n\t<li> (Opcional)Agregar Polvo de batido de proteina basado en caseina de preferencia</li>\r\n\t<li> Colocar la mezcla en un deposito y colocarla en un regrigerador por 10 minutos </li>\r\n\t<li> Se puede agregar cualquier tipo de topping al gusto</li> \r\n</ol>\r\n\r\n<p><u>Nota: Valores nutriciales no incluyen toppings extras agregados.</u></p>\r\n\r\n \r\n\r\n\r\n	1	4	\N	\N	9
-\.
+INSERT INTO public.receta OVERRIDING SYSTEM VALUE VALUES (1, 'Tostadas Francesas Anabolicas', 'https://youtu.be/06O5vtVQEOE', '
+## Preparación
+
+En un deposito agregar 2 huevos, una cucharada de canela y una cucharada de extracto de vainilla y mezclarlo bien. 
+Preparar el sarten en fuego medio y aplicar aceite (de preferencia mediante spray)
+Mojar las rebanadas de pan en la mezcla y poner cada uno de ellas en el sarten, 3 a 4 minutos por lado. 
+
+Ademas, se puede agregar un scoop de tu batido proteico preferido a la mezcla.
+
+## Plato
+Servir estas tostadas en un plato con sus diferentes complementos, en este caso se agregan fresas pero puede agregarse cualquier tipo de fruta y un Jarabe de baja calorías
+', 1, 1, NULL, NULL, 1);
+INSERT INTO public.receta OVERRIDING SYSTEM VALUE VALUES (2, 'Tostadas Francesas Vegetarianas de Fresa', 'https://youtu.be/06O5vtVQEOE', '
+## Preparación
+
+En una licuadora agregar 2 rebanadas de pan, 2 copas de claras de huevo, 1 cucharada de goma guar en polvo, endulzante, extracto de vainilla y canela. 
+Mezclar hasta que tenga una consistencia uniforme. 
+Es recomendable degar reposar por 2 a 3 horas la mezcla para mejorar su consistencia pero esto es opcional.
+Poner la sartén a una temperatura media, agregar aceite (de preferencia en spray),Y agregar la mezcla a la sarten, cocinar por 1-2 minutos. Luego agregarle las fresas partidas encima y cocinar el otro lado por uno a dos minutos. 
+Ademas, se puede agregar un scoop de tu batido proteico preferido a la mezcla.
+
+## Plato
+Servir estas tostadas en un plato con sus diferentes complementos, en este caso se agregan fresas pero puede agregarse cualquier tipo de fruta y un Jarabe de baja calorías
+', 1, 1, NULL, NULL, 2);
+INSERT INTO public.receta OVERRIDING SYSTEM VALUE VALUES (3, 'Hamburguesa de pechuga de pollo', 'https://youtu.be/06O5vtVQEOE', '
+## Preparación
+
+1. Si es de su preferencia se recomienda marinar la pechuga de pollo en la noche con condimientos al gusto. 
+2. Poner la sarten a fuego medio y colocarle spray de aceite
+3. Agregar la pechuga de pollo y cocinarla hasta que este en punto medio (Esto se puede notar cuando cada lado este dorado o llegue a la temperatura interna  de 74 grados)
+4. Poner la salsa en un deposito para calentar en el microondas
+5. unir los panes, con vegetales al gusto y opcionalmente mostaza y salsa de tomate ketchup
+
+Nota: Los macros estimados son descontando la cantidad de condimentos utilizados. 
+
+## Plato
+Servir en un plato, se puede acompañar con bebida natural al gusto. 
+', 1, 2, NULL, NULL, 3);
+INSERT INTO public.receta OVERRIDING SYSTEM VALUE VALUES (4, 'Ensalada proteica balanceada', 'https://youtu.be/06O5vtVQEOE', '
+## Preparación
+
+1.cortar el tomate en rebanadas
+2.Preparar la sarten a calidad media colocar aceite en spray y cocinar la pechuga hasta termino medio
+3.Agregar 25g de pechuga.
+4. Agregar una cucharada de mayonesa light
+5. Opcional se pueden agregar cebolla al gusto. 
+
+
+', 1, 2, NULL, NULL, 4);
+INSERT INTO public.receta OVERRIDING SYSTEM VALUE VALUES (5, 'Fideos con carne magra', 'https://youtu.be/06O5vtVQEOE', '
+## Preparación
+
+1. Calentar 4 cuartos de agua en fuego alto. Cuando el agua empiece a hervir debemos reducir el fuego a fuego bajo.ejercicio 
+2. Agregar un paquete de pasta por persona, utilizar las instrucciones del empaque y al terminar se debe filtrar y poner a un lado
+3. En otro sarten se debe de poner a fuego medio y agregar aceite. 
+4. Agregar Carne magra de res y cocinarlo hasta que ambos lados se encuentren bien cocinado. 
+5. Calentar la salsa de tomate, para esto se puede utilizar el microondas.
+
+## Plato
+Servir con pasta, carne y salsa juntos. 
+
+
+', 1, 3, NULL, NULL, 5);
+INSERT INTO public.receta OVERRIDING SYSTEM VALUE VALUES (6, 'Fettuccini de pechuga de pollo', 'https://youtu.be/06O5vtVQEOE', '
+<h3> Preparación</h3>
+
+<ol>
+	<li> Calentar 4 cuartos de agua en fuego alto. Cuando el agua empiece a hervir debvemos reducir el fuego a fuego bajo.ejercicio </li>
+	<li> Agregar un paquete de fideos fettucini por persona, utilizar las instrucciones del empaque y al terminar se debe filtrar y poner a un lado </li>
+	<li> En otro sarten se debe de poner a fuego medio y agregar aceite. </li>
+	<li> Agregar pechuga en tiras y cocinarlo hasta que ambos lados se encuentren bien cocinado.</li>
+	<li> Agregar chile verde al gusto para agregar sabor y color al plato. </li> 
+	<li> Hervir brocoli en agua por 5 minutos. </li>
+	<li> Se puede agregar una chucharada de crema baja en calorías para mehjorrar su cremosidad </li> 
+</ol>
+
+<h3> Plato </h3>
+
+<p>Servir con Fetuccini, Agregar carne de res y chile verde. En otro plato se puenden poner los brocolis si es encesario</p> 
+
+
+', 1, 3, NULL, NULL, 6);
+INSERT INTO public.receta OVERRIDING SYSTEM VALUE VALUES (7, 'Pizza Proteica', 'https://youtu.be/06O5vtVQEOE', '
+<h3> Preparación</h3>
+
+<ol>
+	<li> Calentar una sarten en fuego medio para poder saltear cebollas con un poco de aceite</li>
+	<li> Al llegar al pundo de caramelizarlas dejarlas en un lado</li>
+	<li> En el horno tostar la tortilla baja en calorías de su preferencia por 3 minutos a temperatura media. </li>
+	<li> Agregar todos los ingredientes en la tortilla, agregar rebanadas finas de queso</li>
+	<li> Luego hornear nuevamente la tortilla por otros tres minutos en la misma temperatura</li> 
+	<li> (Opcional) se puede agregar cualquier topping preferido </li> 
+</ol>
+
+<p><u>Nota: Valores nutriciales no incluyen toppings extras agregados.</u></p>
+
+ 
+
+
+', 1, 3, NULL, NULL, 7);
+INSERT INTO public.receta OVERRIDING SYSTEM VALUE VALUES (8, 'Buddin proteico de queso con chocolate', 'https://youtu.be/06O5vtVQEOE', '
+<h3> Preparación</h3>
+
+<ol>
+	<li>Poner 2 tazas de queso cottage, 4.5 tazas de leche de almednras, 2 cucharadas de gelatina, una cucharada de guar, Endulzante al gusto</li>
+	<li> Agregar todos los ingredientes a una licuadora y licuiar por tres minutos a velocidad media-alta</li>
+	<li> (Opcional)Agregar Polvo de batido de proteina basado en caseina de preferencia</li>
+	<li> Colocar la mezcla en un deposito y colocarla en un regrigerador por 10 minutos </li>
+	<li> Se puede agregar cualquier tipo de topping al gusto</li> 
+</ol>
+
+<p><u>Nota: Valores nutriciales no incluyen toppings extras agregados.</u></p>
+
+ 
+
+
+', 1, 4, NULL, NULL, 8);
+INSERT INTO public.receta OVERRIDING SYSTEM VALUE VALUES (9, 'Buddin proteico de queso con chocolate', 'https://youtu.be/06O5vtVQEOE', '
+<h3> Preparación</h3>
+
+<ol>
+	<li>Poner 2 tazas de queso cottage, 4.5 tazas de leche de almednras, 2 cucharadas de gelatina, una cucharada de guar, Endulzante al gusto</li>
+	<li> Agregar todos los ingredientes a una licuadora y licuiar por tres minutos a velocidad media-alta</li>
+	<li> (Opcional)Agregar Polvo de batido de proteina basado en caseina de preferencia</li>
+	<li> Colocar la mezcla en un deposito y colocarla en un regrigerador por 10 minutos </li>
+	<li> Se puede agregar cualquier tipo de topping al gusto</li> 
+</ol>
+
+<p><u>Nota: Valores nutriciales no incluyen toppings extras agregados.</u></p>
+
+ 
+
+
+', 1, 4, NULL, NULL, 9);
 
 
 --
@@ -1122,8 +1209,6 @@ COPY public.receta (id, nombre, linkvideo, instrucciones, id_objetivo, tiempo_co
 -- Data for Name: rutina; Type: TABLE DATA; Schema: public; Owner: kenkougym
 --
 
-COPY public.rutina (id, nombre) FROM stdin;
-\.
 
 
 --
@@ -1132,17 +1217,15 @@ COPY public.rutina (id, nombre) FROM stdin;
 -- Data for Name: tablanutricional; Type: TABLE DATA; Schema: public; Owner: kenkougym
 --
 
-COPY public.tablanutricional (id, calorias, proteinas, carbohidratos, fibra, grasas) FROM stdin;
-1	250	19	36	2.5	3
-2	310	32	39	4	3
-3	660	76	52	12	14
-4	440	45	38	5	12
-5	320	24	43	7	6
-6	260	25	26	12	5
-7	625	41	49	10	17
-8	99	8	14	2	1
-9	103	7	12	0	1
-\.
+INSERT INTO public.tablanutricional OVERRIDING SYSTEM VALUE VALUES (1, 250, 19, 36, 2.5, 3);
+INSERT INTO public.tablanutricional OVERRIDING SYSTEM VALUE VALUES (2, 310, 32, 39, 4, 3);
+INSERT INTO public.tablanutricional OVERRIDING SYSTEM VALUE VALUES (3, 660, 76, 52, 12, 14);
+INSERT INTO public.tablanutricional OVERRIDING SYSTEM VALUE VALUES (4, 440, 45, 38, 5, 12);
+INSERT INTO public.tablanutricional OVERRIDING SYSTEM VALUE VALUES (5, 320, 24, 43, 7, 6);
+INSERT INTO public.tablanutricional OVERRIDING SYSTEM VALUE VALUES (6, 260, 25, 26, 12, 5);
+INSERT INTO public.tablanutricional OVERRIDING SYSTEM VALUE VALUES (7, 625, 41, 49, 10, 17);
+INSERT INTO public.tablanutricional OVERRIDING SYSTEM VALUE VALUES (8, 99, 8, 14, 2, 1);
+INSERT INTO public.tablanutricional OVERRIDING SYSTEM VALUE VALUES (9, 103, 7, 12, 0, 1);
 
 
 --
@@ -1151,12 +1234,10 @@ COPY public.tablanutricional (id, calorias, proteinas, carbohidratos, fibra, gra
 -- Data for Name: tiempocomida; Type: TABLE DATA; Schema: public; Owner: kenkougym
 --
 
-COPY public.tiempocomida (id, nombre) FROM stdin;
-1	DESAYUNO
-2	ALMUERZO
-3	MERIENDA
-4	CENA
-\.
+INSERT INTO public.tiempocomida OVERRIDING SYSTEM VALUE VALUES (1, 'DESAYUNO');
+INSERT INTO public.tiempocomida OVERRIDING SYSTEM VALUE VALUES (2, 'ALMUERZO');
+INSERT INTO public.tiempocomida OVERRIDING SYSTEM VALUE VALUES (3, 'MERIENDA');
+INSERT INTO public.tiempocomida OVERRIDING SYSTEM VALUE VALUES (4, 'CENA');
 
 
 --
@@ -1165,11 +1246,9 @@ COPY public.tiempocomida (id, nombre) FROM stdin;
 -- Data for Name: tipo_rutina; Type: TABLE DATA; Schema: public; Owner: kenkougym
 --
 
-COPY public.tipo_rutina (id, nombre) FROM stdin;
-1	BAJAR DE PESO
-2	AUMENTAR MASA MUSCULAR
-3	TONIFICAR
-\.
+INSERT INTO public.tipo_rutina OVERRIDING SYSTEM VALUE VALUES (1, 'BAJAR DE PESO');
+INSERT INTO public.tipo_rutina OVERRIDING SYSTEM VALUE VALUES (2, 'AUMENTAR MASA MUSCULAR');
+INSERT INTO public.tipo_rutina OVERRIDING SYSTEM VALUE VALUES (3, 'TONIFICAR');
 
 
 --
@@ -1178,9 +1257,7 @@ COPY public.tipo_rutina (id, nombre) FROM stdin;
 -- Data for Name: user_role; Type: TABLE DATA; Schema: public; Owner: kenkougym
 --
 
-COPY public.user_role (username, role_code) FROM stdin;
-00082318	ROLE_ADMIN
-\.
+INSERT INTO public.user_role VALUES ('00082318', 'ROLE_ADMIN');
 
 
 --
@@ -1189,8 +1266,6 @@ COPY public.user_role (username, role_code) FROM stdin;
 -- Data for Name: userxdieta; Type: TABLE DATA; Schema: public; Owner: kenkougym
 --
 
-COPY public.userxdieta (id_planalimenticio, username, estado) FROM stdin;
-\.
 
 
 --
@@ -1199,8 +1274,6 @@ COPY public.userxdieta (id_planalimenticio, username, estado) FROM stdin;
 -- Data for Name: userxrutina; Type: TABLE DATA; Schema: public; Owner: kenkougym
 --
 
-COPY public.userxrutina (id_rutina, username, estado) FROM stdin;
-\.
 
 
 --
@@ -1209,11 +1282,9 @@ COPY public.userxrutina (id_rutina, username, estado) FROM stdin;
 -- Data for Name: usuario_objetivo; Type: TABLE DATA; Schema: public; Owner: kenkougym
 --
 
-COPY public.usuario_objetivo (username, objetivo_id, activo) FROM stdin;
-00082318	1	f
-00082318	2	t
-00082318	3	f
-\.
+INSERT INTO public.usuario_objetivo VALUES ('00082318', 1, false);
+INSERT INTO public.usuario_objetivo VALUES ('00082318', 2, true);
+INSERT INTO public.usuario_objetivo VALUES ('00082318', 3, false);
 
 
 --
@@ -1909,7 +1980,7 @@ ALTER TABLE ONLY public.usuario_objetivo
 GRANT ALL ON SCHEMA public TO kenkougym;
 
 
--- Completed on 2022-11-02 11:27:12
+-- Completed on 2022-11-02 14:12:23
 
 --
 -- PostgreSQL database dump complete

@@ -26,7 +26,7 @@ public class EjercicioPorMusculo {
     TipoRutina tipoRutina;
     public int series;
     public int repeticiones;
-    public int peso_recomendado;
+    public String peso_recomendado;
     public String tiempo_recomendado;
     public String veces_xsemana;
     public String otras_indicaciones;
@@ -80,10 +80,10 @@ public class EjercicioPorMusculo {
         this.repeticiones = repeticiones;
     }
 
-    public int getPeso_recomendado() {
+    public String getPeso_recomendado() {
         return peso_recomendado;
     }
-    public void setPeso_recomendado(int peso_recomendado) {
+    public void setPeso_recomendado(String peso_recomendado) {
         this.peso_recomendado = peso_recomendado;
     }
 

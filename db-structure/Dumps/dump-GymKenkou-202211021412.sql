@@ -101,7 +101,7 @@ CREATE TABLE public.ejercicio_x_musculo (
     idtrutina integer NOT NULL,
     series integer,
     repeticiones integer,
-    peso_recomendado integer,
+    peso_recomendado character varying,
     tiempo_recomendado character varying,
     veces_xsemana character varying,
     otras_indicaciones character varying,
@@ -819,9 +819,12 @@ INSERT INTO public.ejercicio OVERRIDING SYSTEM VALUE VALUES (13, 'FROG JUMPS');
 -- Dependencies: 213
 -- Data for Name: ejercicio_x_musculo; Type: TABLE DATA; Schema: public; Owner: kenkougym
 --
-
-INSERT INTO public.ejercicio_x_musculo OVERRIDING SYSTEM VALUE VALUES (1, 1, 1, 1, 1, 5, 10, 10, '2 minutos', '3 veces', 'No descansar mas de 1 minuto', 'Intermedio', 'https://www.youtube.com/watch?v=-oqAU5VxFWs');
-INSERT INTO public.ejercicio_x_musculo OVERRIDING SYSTEM VALUE VALUES (2, 2, 2, 2, 2, 4, 8, 10, '2 minutos', '3 veces', 'No descansar mas de 1 minuto', 'Intermedio', 'https://www.youtube.com/watch?v=-oqAU5VxFWs');
+INSERT INTO public.ejercicio_x_musculo OVERRIDING SYSTEM VALUE VALUES (1, 1, 1, 2, 3, 3, 8, 'Máximo peso soportado', '8 minutos', '2', '', 'Difícil', '"https://www.youtube.com/watch?v=_zdaX8F0Ix0"');
+INSERT INTO public.ejercicio_x_musculo OVERRIDING SYSTEM VALUE VALUES (2, 1, 2, 3, 3, 3, 8, 'Máximo peso soportado', '8 minutos', '2', '', 'Difícil', '"https://www.youtube.com/watch?v=umiNqixhh-c"');
+INSERT INTO public.ejercicio_x_musculo OVERRIDING SYSTEM VALUE VALUES (3, 1, 3, 4, 3, 3, 8, 'Máximo peso soportado', '8 minutos', '2', '', 'Difícil', '"https://www.youtube.com/watch?v=uGqAKXqR8dg"');
+INSERT INTO public.ejercicio_x_musculo OVERRIDING SYSTEM VALUE VALUES (4, 2, 4, 5, 3, 3, 8, 'Máximo peso soportado', '5 minutos', '2', '', 'Difícil', '"https://www.youtube.com/watch?v=CkX5QdEz4IE"');
+INSERT INTO public.ejercicio_x_musculo OVERRIDING SYSTEM VALUE VALUES (5, 2, 5, 6, 3, 3, 8, 'Máximo peso soportado', '5 minutos', '2', '', 'Difícil', '"https://www.youtube.com/watch?v=KvnZJBplc54"');
+INSERT INTO public.ejercicio_x_musculo OVERRIDING SYSTEM VALUE VALUES (6, 2, 6, 7, 3, 3, 8, 'Máximo peso soportado', '5 minutos', '2', '', 'Difícil', '"https://www.youtube.com/watch?v=eE4BwnFBiiE"');
 
 
 --
@@ -1025,7 +1028,6 @@ INSERT INTO public.musculo OVERRIDING SYSTEM VALUE VALUES (6, 'Pectorales');
 INSERT INTO public.musculo OVERRIDING SYSTEM VALUE VALUES (7, 'Espalda');
 INSERT INTO public.musculo OVERRIDING SYSTEM VALUE VALUES (8, 'Cuadríceps');
 INSERT INTO public.musculo OVERRIDING SYSTEM VALUE VALUES (9, 'Antebrazos');
-INSERT INTO public.musculo OVERRIDING SYSTEM VALUE VALUES (10, 'Pantorrillas');
 INSERT INTO public.musculo OVERRIDING SYSTEM VALUE VALUES (10, 'Pantorrillas');
 
 
@@ -1264,9 +1266,9 @@ INSERT INTO public.tiempocomida OVERRIDING SYSTEM VALUE VALUES (4, 'CENA');
 -- Data for Name: tipo_rutina; Type: TABLE DATA; Schema: public; Owner: kenkougym
 --
 
-INSERT INTO public.tipo_rutina OVERRIDING SYSTEM VALUE VALUES (1, 'BAJAR DE PESO');
-INSERT INTO public.tipo_rutina OVERRIDING SYSTEM VALUE VALUES (2, 'AUMENTAR MASA MUSCULAR');
-INSERT INTO public.tipo_rutina OVERRIDING SYSTEM VALUE VALUES (3, 'TONIFICAR');
+INSERT INTO public.tipo_rutina OVERRIDING SYSTEM VALUE VALUES (1, 'Bajar de Peso');
+INSERT INTO public.tipo_rutina OVERRIDING SYSTEM VALUE VALUES (2, 'Aumento masa muscular');
+INSERT INTO public.tipo_rutina OVERRIDING SYSTEM VALUE VALUES (3, 'Tonificar');
 
 
 --

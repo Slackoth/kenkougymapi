@@ -605,7 +605,12 @@ ALTER TABLE public.receta ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
 
 CREATE TABLE public.rutina (
     id integer NOT NULL,
-    nombre character varying NOT NULL
+    nombre character varying NOT NULL,
+	imagen character varying NOT NULL,
+	dificultad character varying NOT NULL,
+	objetivo character varying NOT NULL,
+	musculo_a_trabajar character varying NOT NULL,
+	instrucciones character varying NOT NULL
 );
 
 
@@ -1231,8 +1236,8 @@ INSERT INTO public.receta OVERRIDING SYSTEM VALUE VALUES (9, 'Buddin proteico de
 -- Dependencies: 240
 -- Data for Name: rutina; Type: TABLE DATA; Schema: public; Owner: kenkougym
 --
-INSERT INTO public.rutina OVERRIDING SYSTEM VALUE VALUES (1, 'Rutina de Brazos');
-INSERT INTO public.rutina OVERRIDING SYSTEM VALUE VALUES (2, 'Rutina de Hombros');
+INSERT INTO public.rutina OVERRIDING SYSTEM VALUE VALUES (1, 'Rutina de Brazos', 'https://drive.google.com/uc?export=view&id=1MNKjIARxRDGutPiPh9cm7q6Gjsmg0E0F', 'Difícil', 'Aumento masa muscular', 'Brazos', 'Instrucciones');
+INSERT INTO public.rutina OVERRIDING SYSTEM VALUE VALUES (2, 'Rutina de Hombros', 'https://drive.google.com/uc?export=view&id=1repu2txqmAz37YmN08khbuaXVzbLxg_E', 'Difícil', 'Aumento masa muscular', 'Hombros', 'Instrucciones');
 
 
 --

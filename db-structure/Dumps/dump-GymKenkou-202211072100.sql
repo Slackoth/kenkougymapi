@@ -827,6 +827,7 @@ INSERT INTO public.ejercicio_x_musculo OVERRIDING SYSTEM VALUE VALUES (3, 1, 3, 
 INSERT INTO public.ejercicio_x_musculo OVERRIDING SYSTEM VALUE VALUES (4, 2, 4, 5, 3, 3, 8, 'Máximo peso soportado', '5 minutos', '2', '', 'Difícil', 'https://www.youtube.com/watch?v=CkX5QdEz4IE');
 INSERT INTO public.ejercicio_x_musculo OVERRIDING SYSTEM VALUE VALUES (5, 2, 5, 6, 3, 3, 8, 'Máximo peso soportado', '5 minutos', '2', '', 'Difícil', 'https://www.youtube.com/watch?v=KvnZJBplc54');
 INSERT INTO public.ejercicio_x_musculo OVERRIDING SYSTEM VALUE VALUES (6, 2, 6, 7, 3, 3, 8, 'Máximo peso soportado', '5 minutos', '2', '', 'Difícil', 'https://www.youtube.com/watch?v=eE4BwnFBiiE');
+--Hombros
 
 
 --
@@ -840,6 +841,12 @@ INSERT INTO public.ejercicio_x_rutina OVERRIDING SYSTEM VALUE VALUES (1, 3);
 INSERT INTO public.ejercicio_x_rutina OVERRIDING SYSTEM VALUE VALUES (1, 4);
 INSERT INTO public.ejercicio_x_rutina OVERRIDING SYSTEM VALUE VALUES (1, 5);
 INSERT INTO public.ejercicio_x_rutina OVERRIDING SYSTEM VALUE VALUES (1, 6);
+INSERT INTO public.ejercicio_x_rutina OVERRIDING SYSTEM VALUE VALUES (2, 7);
+INSERT INTO public.ejercicio_x_rutina OVERRIDING SYSTEM VALUE VALUES (2, 8);
+INSERT INTO public.ejercicio_x_rutina OVERRIDING SYSTEM VALUE VALUES (2, 9);
+INSERT INTO public.ejercicio_x_rutina OVERRIDING SYSTEM VALUE VALUES (2, 10);
+INSERT INTO public.ejercicio_x_rutina OVERRIDING SYSTEM VALUE VALUES (2, 11);
+INSERT INTO public.ejercicio_x_rutina OVERRIDING SYSTEM VALUE VALUES (2, 12);
 
 
 --
@@ -1052,7 +1059,7 @@ INSERT INTO public.musculo OVERRIDING SYSTEM VALUE VALUES (9, 'Antebrazos');
 INSERT INTO public.musculo OVERRIDING SYSTEM VALUE VALUES (10, 'Pantorrillas');
 INSERT INTO public.musculo OVERRIDING SYSTEM VALUE VALUES (11, 'Deltoides Anterior');
 INSERT INTO public.musculo OVERRIDING SYSTEM VALUE VALUES (12, 'Deltoides Lateral');
-INSERT INTO public.musculo OVERRIDING SYSTEM VALUE VALUES (12, 'Deltoides Posterior');
+INSERT INTO public.musculo OVERRIDING SYSTEM VALUE VALUES (13, 'Deltoides Posterior');
 
 
 --

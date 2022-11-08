@@ -808,13 +808,12 @@ INSERT INTO public.ejercicio OVERRIDING SYSTEM VALUE VALUES (3, 'Curl Supino');
 INSERT INTO public.ejercicio OVERRIDING SYSTEM VALUE VALUES (4, 'Fondos en paralelas');
 INSERT INTO public.ejercicio OVERRIDING SYSTEM VALUE VALUES (5, 'Rompe cráneos con mancuerna');
 INSERT INTO public.ejercicio OVERRIDING SYSTEM VALUE VALUES (6, 'Copa con lazo');
-INSERT INTO public.ejercicio OVERRIDING SYSTEM VALUE VALUES (7, 'SALTAR CUERDA');
-INSERT INTO public.ejercicio OVERRIDING SYSTEM VALUE VALUES (8, 'PLANCHA');
-INSERT INTO public.ejercicio OVERRIDING SYSTEM VALUE VALUES (9, 'SENTADILLA');
-INSERT INTO public.ejercicio OVERRIDING SYSTEM VALUE VALUES (10, 'ZANCADA CON PESO');
-INSERT INTO public.ejercicio OVERRIDING SYSTEM VALUE VALUES (11, 'DEADBUG');
-INSERT INTO public.ejercicio OVERRIDING SYSTEM VALUE VALUES (12, 'ELEVACION DE CADERA');
-INSERT INTO public.ejercicio OVERRIDING SYSTEM VALUE VALUES (13, 'FROG JUMPS');
+INSERT INTO public.ejercicio OVERRIDING SYSTEM VALUE VALUES (7, 'Press militar con barra');
+INSERT INTO public.ejercicio OVERRIDING SYSTEM VALUE VALUES (8, 'Press militar con mancuerna');
+INSERT INTO public.ejercicio OVERRIDING SYSTEM VALUE VALUES (9, 'Elevaciones frontales');
+INSERT INTO public.ejercicio OVERRIDING SYSTEM VALUE VALUES (10, 'Vuelos');
+INSERT INTO public.ejercicio OVERRIDING SYSTEM VALUE VALUES (11, 'Face pull');
+INSERT INTO public.ejercicio OVERRIDING SYSTEM VALUE VALUES (12, 'Remo barra alta');
 
 
 --
@@ -894,6 +893,7 @@ INSERT INTO public.fotografiaxreceta VALUES (9, 9);
 -- Data for Name: imagen_ejercicio; Type: TABLE DATA; Schema: public; Owner: kenkougym
 --
 
+
 --Concentrado
 INSERT INTO public.imagen_ejercicio OVERRIDING SYSTEM VALUE VALUES (1, 'https://drive.google.com/uc?export=view&id=1MNKjIARxRDGutPiPh9cm7q6Gjsmg0E0F');
 -- Predicador
@@ -917,12 +917,25 @@ INSERT INTO public.imagen_ejercicio OVERRIDING SYSTEM VALUE VALUES (9, 'https://
 INSERT INTO public.imagen_ejercicio OVERRIDING SYSTEM VALUE VALUES (10, 'https://drive.google.com/uc?export=view&id=13XRTCnyi89dbiYyrdpxA4k3rXpJ4ZTsg');
 -- Piernas
 INSERT INTO public.imagen_ejercicio OVERRIDING SYSTEM VALUE VALUES (11, 'https://drive.google.com/uc?export=view&id=12fic5fNXXUPQ9GRPFr09aA5jPDudaeuz');
--- Abdominales
-INSERT INTO public.imagen_ejercicio OVERRIDING SYSTEM VALUE VALUES (12, 'https://drive.google.com/uc?export=view&id=1AuMgJ1-i11DpaozdVmttPu7Nd1XK1cvA');
-INSERT INTO public.imagen_ejercicio OVERRIDING SYSTEM VALUE VALUES (13, 'https://drive.google.com/uc?export=view&id=1dMwVyzKZaTp612onhUZD0mfF1iyGiNaT');
-INSERT INTO public.imagen_ejercicio OVERRIDING SYSTEM VALUE VALUES (14, 'https://drive.google.com/uc?export=view&id=1dMwVyzKZaTp612onhUZD0mfF1iyGiNaT');
-INSERT INTO public.imagen_ejercicio OVERRIDING SYSTEM VALUE VALUES (15, 'https://drive.google.com/uc?export=view&id=1dMwVyzKZaTp612onhUZD0mfF1iyGiNaT');
-INSERT INTO public.imagen_ejercicio OVERRIDING SYSTEM VALUE VALUES (16, 'https://drive.google.com/uc?export=view&id=1dMwVyzKZaTp612onhUZD0mfF1iyGiNaT');
+
+-- Ejercicios hombros
+--Deltoides posterior
+-- Face pull
+INSERT INTO public.imagen_ejercicio OVERRIDING SYSTEM VALUE VALUES (12, 'https://drive.google.com/uc?export=view&id=1wwhbWPATLXFkQTpwvqUdwLfNOnzm2JMY');
+--Remo barra alta
+INSERT INTO public.imagen_ejercicio OVERRIDING SYSTEM VALUE VALUES (13, 'https://drive.google.com/uc?export=view&id=13dVnSh2RlsqWZwofMTlQnyN16Rvr-H5P');
+
+-- Deltoides anterior
+-- Press militar barra
+INSERT INTO public.imagen_ejercicio OVERRIDING SYSTEM VALUE VALUES (14, 'https://drive.google.com/uc?export=view&id=18mZIOnqFcA0oWukafsenZbhoOC4qoLpK');
+--Press militar mancuerna
+INSERT INTO public.imagen_ejercicio OVERRIDING SYSTEM VALUE VALUES (15, 'https://drive.google.com/uc?export=view&id=1BZnH0JkTTIQq8XekD6sAQN6YTSM64mwA');
+
+-- Deltoides lateral
+-- Elevaciones frontal
+INSERT INTO public.imagen_ejercicio OVERRIDING SYSTEM VALUE VALUES (16, 'https://drive.google.com/uc?export=view&id=1jR9yjRAatezrUhxXn7b-8jj2bPO1HWK0');
+--Vuelos
+INSERT INTO public.imagen_ejercicio OVERRIDING SYSTEM VALUE VALUES (17, 'https://drive.google.com/uc?export=view&id=1xd7u9rGHhslE9AsC8HBKIiphBl-LNhkX');
 
 
 --
@@ -1037,6 +1050,9 @@ INSERT INTO public.musculo OVERRIDING SYSTEM VALUE VALUES (7, 'Espalda');
 INSERT INTO public.musculo OVERRIDING SYSTEM VALUE VALUES (8, 'Cuadríceps');
 INSERT INTO public.musculo OVERRIDING SYSTEM VALUE VALUES (9, 'Antebrazos');
 INSERT INTO public.musculo OVERRIDING SYSTEM VALUE VALUES (10, 'Pantorrillas');
+INSERT INTO public.musculo OVERRIDING SYSTEM VALUE VALUES (11, 'Deltoides Anterior');
+INSERT INTO public.musculo OVERRIDING SYSTEM VALUE VALUES (12, 'Deltoides Lateral');
+INSERT INTO public.musculo OVERRIDING SYSTEM VALUE VALUES (12, 'Deltoides Posterior');
 
 
 --
@@ -1236,8 +1252,8 @@ INSERT INTO public.receta OVERRIDING SYSTEM VALUE VALUES (9, 'Buddin proteico de
 -- Dependencies: 240
 -- Data for Name: rutina; Type: TABLE DATA; Schema: public; Owner: kenkougym
 --
-INSERT INTO public.rutina OVERRIDING SYSTEM VALUE VALUES (1, 'Rutina de Brazos', 'https://drive.google.com/uc?export=view&id=1MNKjIARxRDGutPiPh9cm7q6Gjsmg0E0F', 'Difícil', 'Aumento masa muscular', 'Brazos', 'Instrucciones');
-INSERT INTO public.rutina OVERRIDING SYSTEM VALUE VALUES (2, 'Rutina de Hombros', 'https://drive.google.com/uc?export=view&id=1repu2txqmAz37YmN08khbuaXVzbLxg_E', 'Difícil', 'Aumento masa muscular', 'Hombros', 'Instrucciones');
+INSERT INTO public.rutina OVERRIDING SYSTEM VALUE VALUES (1, 'Rutina de Brazos', 'https://drive.google.com/uc?export=view&id=1MNKjIARxRDGutPiPh9cm7q6Gjsmg0E0F', 'Difícil', 'Aumento masa muscular', 'Brazos', '/searchRutine');
+INSERT INTO public.rutina OVERRIDING SYSTEM VALUE VALUES (2, 'Rutina de Hombros', 'https://drive.google.com/uc?export=view&id=1repu2txqmAz37YmN08khbuaXVzbLxg_E', 'Difícil', 'Aumento masa muscular', 'Hombros', '/searchRutine');
 
 
 --

@@ -848,7 +848,7 @@ INSERT INTO public.ejercicio_x_rutina OVERRIDING SYSTEM VALUE VALUES (1, 3);
 INSERT INTO public.ejercicio_x_rutina OVERRIDING SYSTEM VALUE VALUES (1, 4);
 INSERT INTO public.ejercicio_x_rutina OVERRIDING SYSTEM VALUE VALUES (1, 5);
 INSERT INTO public.ejercicio_x_rutina OVERRIDING SYSTEM VALUE VALUES (1, 6);
-INSERT INTO public.ejercicio_x_rutina OVERRIDING SYSTEM VALUE VALUES (1, 7);
+INSERT INTO public.ejercicio_x_rutina OVERRIDING SYSTEM VALUE VALUES (2, 7);
 INSERT INTO public.ejercicio_x_rutina OVERRIDING SYSTEM VALUE VALUES (2, 8);
 INSERT INTO public.ejercicio_x_rutina OVERRIDING SYSTEM VALUE VALUES (2, 9);
 INSERT INTO public.ejercicio_x_rutina OVERRIDING SYSTEM VALUE VALUES (2, 10);
@@ -1266,7 +1266,7 @@ INSERT INTO public.receta OVERRIDING SYSTEM VALUE VALUES (9, 'Buddin proteico de
 -- Data for Name: rutina; Type: TABLE DATA; Schema: public; Owner: kenkougym
 --
 INSERT INTO public.rutina OVERRIDING SYSTEM VALUE VALUES (1, 'Rutina de Brazos', 'https://drive.google.com/uc?export=view&id=1MNKjIARxRDGutPiPh9cm7q6Gjsmg0E0F', 'Difícil', 'Tonificar', 'Bíceps', '/searchRutine');
-INSERT INTO public.rutina OVERRIDING SYSTEM VALUE VALUES (2, 'Rutina de Hombros', 'https://drive.google.com/uc?export=view&id=1repu2txqmAz37YmN08khbuaXVzbLxg_E', 'Media', 'Tonificar', 'Hombros', '/searchRutine');
+INSERT INTO public.rutina OVERRIDING SYSTEM VALUE VALUES (2, 'Rutina de Hombros', 'https://drive.google.com/uc?export=view&id=1repu2txqmAz37YmN08khbuaXVzbLxg_E', 'Media', 'Tonificar', 'Hombros', '/searchRutine2');
 
 --
 -- TOC entry 3555 (class 0 OID 25252)

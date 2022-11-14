@@ -15,6 +15,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import uca.ungallocontenis.kenkougymapi.entity.KenkouUser.UsuarioObjetivoActivo.UsuarioObjetivoActivo;
+import uca.ungallocontenis.kenkougymapi.entity.KenkouUser.UsuarioPlanAlimenticioActivo.UsuarioPlanAlimenticioActivo;
 
 @Entity(name = "KenkouUser")
 @Table(name = "kenkou_user")
@@ -30,8 +31,8 @@ public class KenkouUser {
     private String password;
     private boolean enabled;
     private boolean locked;
-    @Column(name = "credentials_expiration")
-    private String credentialsExpiration;
+    @Column(name = "credentials_expiration", columnDefinition = "DATE")
+    private LocalDate credentialsExpiration;
     @ManyToMany(fetch = FetchType.LAZY) // EAGER: Every time we retrieve a KenkouUser, the KenkouRole List will be filled inmediately
     @JoinTable(name = "user_role", joinColumns = {@JoinColumn(name = "username", referencedColumnName = "username")}, inverseJoinColumns = {@JoinColumn(name = "role_code", referencedColumnName = "role_code")})
     private List<KenkouRole> usersRoles;
@@ -40,9 +41,11 @@ public class KenkouUser {
     @OneToMany(mappedBy = "usuario") 
     private Set<UsuarioObjetivoActivo> objetivos;
     private String sexo;
+    @OneToMany(mappedBy = "usuario") 
+    private Set<UsuarioPlanAlimenticioActivo> planesAlimenticios;
 
     public boolean isCredentialsExpired() {
-        return LocalDate.parse(this.credentialsExpiration).isEqual(LocalDate.now()); 
+        return this.credentialsExpiration.isEqual(LocalDate.now()); 
     }
     
     public String getUsername() {
@@ -101,11 +104,11 @@ public class KenkouUser {
         this.locked = locked;
     }
 
-    public String getCredentialsExpiration() {
+    public LocalDate getCredentialsExpiration() {
         return credentialsExpiration;
     }
 
-    public void setCredentialsExpiration(String credentialsExpiration) {
+    public void setCredentialsExpiration(LocalDate credentialsExpiration) {
         this.credentialsExpiration = credentialsExpiration;
     }
 
@@ -139,5 +142,13 @@ public class KenkouUser {
 
     public void setSexo(String sexo) {
         this.sexo = sexo;
+    }
+
+    public Set<UsuarioPlanAlimenticioActivo> getPlanesAlimenticios() {
+        return planesAlimenticios;
+    }
+
+    public void setPlanesAlimenticios(Set<UsuarioPlanAlimenticioActivo> planesAlimenticios) {
+        this.planesAlimenticios = planesAlimenticios;
     }
 }

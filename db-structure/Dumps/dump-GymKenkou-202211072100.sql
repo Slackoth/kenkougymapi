@@ -605,7 +605,12 @@ ALTER TABLE public.receta ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
 
 CREATE TABLE public.rutina (
     id integer NOT NULL,
-    nombre character varying NOT NULL
+    nombre character varying NOT NULL,
+	imagen character varying NOT NULL,
+	dificultad character varying NOT NULL,
+	objetivo character varying NOT NULL,
+	musculo_a_trabajar character varying NOT NULL,
+	instrucciones character varying NOT NULL
 );
 
 
@@ -803,13 +808,12 @@ INSERT INTO public.ejercicio OVERRIDING SYSTEM VALUE VALUES (3, 'Curl Supino');
 INSERT INTO public.ejercicio OVERRIDING SYSTEM VALUE VALUES (4, 'Fondos en paralelas');
 INSERT INTO public.ejercicio OVERRIDING SYSTEM VALUE VALUES (5, 'Rompe cráneos con mancuerna');
 INSERT INTO public.ejercicio OVERRIDING SYSTEM VALUE VALUES (6, 'Copa con lazo');
-INSERT INTO public.ejercicio OVERRIDING SYSTEM VALUE VALUES (7, 'SALTAR CUERDA');
-INSERT INTO public.ejercicio OVERRIDING SYSTEM VALUE VALUES (8, 'PLANCHA');
-INSERT INTO public.ejercicio OVERRIDING SYSTEM VALUE VALUES (9, 'SENTADILLA');
-INSERT INTO public.ejercicio OVERRIDING SYSTEM VALUE VALUES (10, 'ZANCADA CON PESO');
-INSERT INTO public.ejercicio OVERRIDING SYSTEM VALUE VALUES (11, 'DEADBUG');
-INSERT INTO public.ejercicio OVERRIDING SYSTEM VALUE VALUES (12, 'ELEVACION DE CADERA');
-INSERT INTO public.ejercicio OVERRIDING SYSTEM VALUE VALUES (13, 'FROG JUMPS');
+INSERT INTO public.ejercicio OVERRIDING SYSTEM VALUE VALUES (7, 'Press militar con barra');
+INSERT INTO public.ejercicio OVERRIDING SYSTEM VALUE VALUES (8, 'Press militar con mancuerna');
+INSERT INTO public.ejercicio OVERRIDING SYSTEM VALUE VALUES (9, 'Elevaciones frontales');
+INSERT INTO public.ejercicio OVERRIDING SYSTEM VALUE VALUES (10, 'Vuelos');
+INSERT INTO public.ejercicio OVERRIDING SYSTEM VALUE VALUES (11, 'Face pull');
+INSERT INTO public.ejercicio OVERRIDING SYSTEM VALUE VALUES (12, 'Remo barra alta');
 
 
 --
@@ -823,6 +827,14 @@ INSERT INTO public.ejercicio_x_musculo OVERRIDING SYSTEM VALUE VALUES (3, 1, 3, 
 INSERT INTO public.ejercicio_x_musculo OVERRIDING SYSTEM VALUE VALUES (4, 2, 4, 5, 3, 3, 8, 'Máximo peso soportado', '5 minutos', '2', '', 'Difícil', 'https://www.youtube.com/watch?v=CkX5QdEz4IE');
 INSERT INTO public.ejercicio_x_musculo OVERRIDING SYSTEM VALUE VALUES (5, 2, 5, 6, 3, 3, 8, 'Máximo peso soportado', '5 minutos', '2', '', 'Difícil', 'https://www.youtube.com/watch?v=KvnZJBplc54');
 INSERT INTO public.ejercicio_x_musculo OVERRIDING SYSTEM VALUE VALUES (6, 2, 6, 7, 3, 3, 8, 'Máximo peso soportado', '5 minutos', '2', '', 'Difícil', 'https://www.youtube.com/watch?v=eE4BwnFBiiE');
+--Hombros
+INSERT INTO public.ejercicio_x_musculo OVERRIDING SYSTEM VALUE VALUES (7, 11, 7, 14, 3, 4, 8, 'Peso dominado', '6 minutos', '1', 'Realizar despues de comer', 'Media', '"https://www.youtube.com/watch?v=8_whF4Z7WTI"');
+INSERT INTO public.ejercicio_x_musculo OVERRIDING SYSTEM VALUE VALUES (8, 11, 8, 15, 3, 4, 10, 'Peso dominado', '8 minutos', '1', 'Realizar despues de comer', 'Media', '"https://www.youtube.com/watch?v=o5M9RZ-vWrc"');
+INSERT INTO public.ejercicio_x_musculo OVERRIDING SYSTEM VALUE VALUES (9, 12, 9, 16, 3, 4, 8, 'Peso dominado', '6 minutos', '1', 'Realizar despues de comer', 'Media', '"https://www.youtube.com/watch?v=ZLG2Ed8C87A"');
+INSERT INTO public.ejercicio_x_musculo OVERRIDING SYSTEM VALUE VALUES (10, 12, 10, 17, 3, 4, 8, 'Peso dominado', '6 minutos', '1', 'Realizar despues de comer', 'Media', '"https://www.youtube.com/watch?v=xZKJAQpe2ug"');
+INSERT INTO public.ejercicio_x_musculo OVERRIDING SYSTEM VALUE VALUES (11, 13, 11, 12, 3, 4, 10, 'Peso dominado', '10 minutos', '1', 'Realizar despues de comer', 'Media', '"https://www.youtube.com/watch?v=h2I7pHAKLoE"');
+INSERT INTO public.ejercicio_x_musculo OVERRIDING SYSTEM VALUE VALUES (12, 13, 12, 13, 3, 4, 10, 'Peso dominado', '10 minutos', '1', 'Realizar despues de comer', 'Media', '"https://youtu.be/KsH6QzoNhxE"');
+
 
 
 --
@@ -836,7 +848,12 @@ INSERT INTO public.ejercicio_x_rutina OVERRIDING SYSTEM VALUE VALUES (1, 3);
 INSERT INTO public.ejercicio_x_rutina OVERRIDING SYSTEM VALUE VALUES (1, 4);
 INSERT INTO public.ejercicio_x_rutina OVERRIDING SYSTEM VALUE VALUES (1, 5);
 INSERT INTO public.ejercicio_x_rutina OVERRIDING SYSTEM VALUE VALUES (1, 6);
-
+INSERT INTO public.ejercicio_x_rutina OVERRIDING SYSTEM VALUE VALUES (2, 7);
+INSERT INTO public.ejercicio_x_rutina OVERRIDING SYSTEM VALUE VALUES (2, 8);
+INSERT INTO public.ejercicio_x_rutina OVERRIDING SYSTEM VALUE VALUES (2, 9);
+INSERT INTO public.ejercicio_x_rutina OVERRIDING SYSTEM VALUE VALUES (2, 10);
+INSERT INTO public.ejercicio_x_rutina OVERRIDING SYSTEM VALUE VALUES (2, 11);
+INSERT INTO public.ejercicio_x_rutina OVERRIDING SYSTEM VALUE VALUES (2, 12);
 
 --
 -- TOC entry 3529 (class 0 OID 25161)
@@ -889,6 +906,7 @@ INSERT INTO public.fotografiaxreceta VALUES (9, 9);
 -- Data for Name: imagen_ejercicio; Type: TABLE DATA; Schema: public; Owner: kenkougym
 --
 
+
 --Concentrado
 INSERT INTO public.imagen_ejercicio OVERRIDING SYSTEM VALUE VALUES (1, 'https://drive.google.com/uc?export=view&id=1MNKjIARxRDGutPiPh9cm7q6Gjsmg0E0F');
 -- Predicador
@@ -912,12 +930,25 @@ INSERT INTO public.imagen_ejercicio OVERRIDING SYSTEM VALUE VALUES (9, 'https://
 INSERT INTO public.imagen_ejercicio OVERRIDING SYSTEM VALUE VALUES (10, 'https://drive.google.com/uc?export=view&id=13XRTCnyi89dbiYyrdpxA4k3rXpJ4ZTsg');
 -- Piernas
 INSERT INTO public.imagen_ejercicio OVERRIDING SYSTEM VALUE VALUES (11, 'https://drive.google.com/uc?export=view&id=12fic5fNXXUPQ9GRPFr09aA5jPDudaeuz');
--- Abdominales
-INSERT INTO public.imagen_ejercicio OVERRIDING SYSTEM VALUE VALUES (12, 'https://drive.google.com/uc?export=view&id=1AuMgJ1-i11DpaozdVmttPu7Nd1XK1cvA');
-INSERT INTO public.imagen_ejercicio OVERRIDING SYSTEM VALUE VALUES (13, 'https://drive.google.com/uc?export=view&id=1dMwVyzKZaTp612onhUZD0mfF1iyGiNaT');
-INSERT INTO public.imagen_ejercicio OVERRIDING SYSTEM VALUE VALUES (14, 'https://drive.google.com/uc?export=view&id=1dMwVyzKZaTp612onhUZD0mfF1iyGiNaT');
-INSERT INTO public.imagen_ejercicio OVERRIDING SYSTEM VALUE VALUES (15, 'https://drive.google.com/uc?export=view&id=1dMwVyzKZaTp612onhUZD0mfF1iyGiNaT');
-INSERT INTO public.imagen_ejercicio OVERRIDING SYSTEM VALUE VALUES (16, 'https://drive.google.com/uc?export=view&id=1dMwVyzKZaTp612onhUZD0mfF1iyGiNaT');
+
+-- Ejercicios hombros
+--Deltoides posterior
+-- Face pull
+INSERT INTO public.imagen_ejercicio OVERRIDING SYSTEM VALUE VALUES (12, 'https://drive.google.com/uc?export=view&id=1wwhbWPATLXFkQTpwvqUdwLfNOnzm2JMY');
+--Remo barra alta
+INSERT INTO public.imagen_ejercicio OVERRIDING SYSTEM VALUE VALUES (13, 'https://drive.google.com/uc?export=view&id=13dVnSh2RlsqWZwofMTlQnyN16Rvr-H5P');
+
+-- Deltoides anterior
+-- Press militar barra
+INSERT INTO public.imagen_ejercicio OVERRIDING SYSTEM VALUE VALUES (14, 'https://drive.google.com/uc?export=view&id=18mZIOnqFcA0oWukafsenZbhoOC4qoLpK');
+--Press militar mancuerna
+INSERT INTO public.imagen_ejercicio OVERRIDING SYSTEM VALUE VALUES (15, 'https://drive.google.com/uc?export=view&id=1BZnH0JkTTIQq8XekD6sAQN6YTSM64mwA');
+
+-- Deltoides lateral
+-- Elevaciones frontal
+INSERT INTO public.imagen_ejercicio OVERRIDING SYSTEM VALUE VALUES (16, 'https://drive.google.com/uc?export=view&id=1jR9yjRAatezrUhxXn7b-8jj2bPO1HWK0');
+--Vuelos
+INSERT INTO public.imagen_ejercicio OVERRIDING SYSTEM VALUE VALUES (17, 'https://drive.google.com/uc?export=view&id=1xd7u9rGHhslE9AsC8HBKIiphBl-LNhkX');
 
 
 --
@@ -1032,6 +1063,9 @@ INSERT INTO public.musculo OVERRIDING SYSTEM VALUE VALUES (7, 'Espalda');
 INSERT INTO public.musculo OVERRIDING SYSTEM VALUE VALUES (8, 'Cuadríceps');
 INSERT INTO public.musculo OVERRIDING SYSTEM VALUE VALUES (9, 'Antebrazos');
 INSERT INTO public.musculo OVERRIDING SYSTEM VALUE VALUES (10, 'Pantorrillas');
+INSERT INTO public.musculo OVERRIDING SYSTEM VALUE VALUES (11, 'Deltoides Anterior');
+INSERT INTO public.musculo OVERRIDING SYSTEM VALUE VALUES (12, 'Deltoides Lateral');
+INSERT INTO public.musculo OVERRIDING SYSTEM VALUE VALUES (13, 'Deltoides Posterior');
 
 
 --
@@ -1235,9 +1269,8 @@ INSERT INTO public.receta OVERRIDING SYSTEM VALUE VALUES (9, 'Buddin proteico de
 -- Dependencies: 240
 -- Data for Name: rutina; Type: TABLE DATA; Schema: public; Owner: kenkougym
 --
-INSERT INTO public.rutina OVERRIDING SYSTEM VALUE VALUES (1, 'Rutina de Brazos');
-INSERT INTO public.rutina OVERRIDING SYSTEM VALUE VALUES (2, 'Rutina de Hombros');
-
+INSERT INTO public.rutina OVERRIDING SYSTEM VALUE VALUES (1, 'Rutina de Brazos', 'https://drive.google.com/uc?export=view&id=1MNKjIARxRDGutPiPh9cm7q6Gjsmg0E0F', 'Difícil', 'Tonificar', 'Bíceps', '/searchRutine');
+INSERT INTO public.rutina OVERRIDING SYSTEM VALUE VALUES (2, 'Rutina de Hombros', 'https://drive.google.com/uc?export=view&id=1repu2txqmAz37YmN08khbuaXVzbLxg_E', 'Media', 'Tonificar', 'Hombros', '/searchRutine2');
 
 --
 -- TOC entry 3555 (class 0 OID 25252)

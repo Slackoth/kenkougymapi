@@ -1091,31 +1091,32 @@ INSERT INTO public.progreso OVERRIDING SYSTEM VALUE VALUES (5, '00082318', 181, 
 --
 
 INSERT INTO public.receta OVERRIDING SYSTEM VALUE VALUES (1, 'Tostadas Francesas Anabolicas', 'https://youtu.be/06O5vtVQEOE', '
-## Preparación
+<h3>Preparación</h3>
+<ol>
+    <li> En un deposito agregar 2 huevos, una cucharada de canela y una cucharada de extracto de vainilla y mezclarlo bien. \n</li>
+    <li> Preparar el sarten en fuego medio y aplicar aceite (de preferencia mediante spray)\n</li>
+    <li> Mojar las rebanadas de pan en la mezcla y poner cada uno de ellas en el sarten, 3 a 4 minutos por lado. \n</p></li>
+</ol>
+<p>Ademas, se puede agregar un scoop de tu batido proteico preferido a la mezcla.</p>
 
-En un deposito agregar 2 huevos, una cucharada de canela y una cucharada de extracto de vainilla y mezclarlo bien. 
-Preparar el sarten en fuego medio y aplicar aceite (de preferencia mediante spray)
-Mojar las rebanadas de pan en la mezcla y poner cada uno de ellas en el sarten, 3 a 4 minutos por lado. 
-
-Ademas, se puede agregar un scoop de tu batido proteico preferido a la mezcla.
-
-## Plato
-Servir estas tostadas en un plato con sus diferentes complementos, en este caso se agregan fresas pero puede agregarse cualquier tipo de fruta y un Jarabe de baja calorías
+<h3> Plato </h3>
+<p>Servir estas tostadas en un plato con sus diferentes complementos, en este caso se agregan fresas pero puede agregarse cualquier tipo de fruta y un Jarabe de baja calorías</p>
 ', 1, 1, NULL, NULL, 1);
 INSERT INTO public.receta OVERRIDING SYSTEM VALUE VALUES (2, 'Tostadas Francesas Vegetarianas de Fresa', 'https://youtu.be/06O5vtVQEOE', '
-## Preparación
+<h3>Preparación</h3>
+<ol>
+    <li> En una licuadora agregar 2 rebanadas de pan, 2 copas de claras de huevo, 1 cucharada de goma guar en polvo, endulzante, extracto de vainilla y canela. </li>
+    <li> Mezclar hasta que tenga una consistencia uniforme. </li>
+    <li> Es recomendable degar reposar por 2 a 3 horas la mezcla para mejorar su consistencia pero esto es opcional.</li>
+    <li> Poner la sartén a una temperatura media, agregar aceite (de preferencia en spray),Y agregar la mezcla a la sarten, cocinar por 1-2 minutos. Luego agregarle las fresas partidas encima y cocinar el otro lado por uno a dos minutos. </li>
+</ol>
+<p>Ademas, se puede agregar un scoop de tu batido proteico preferido a la mezcla.</p>
 
-En una licuadora agregar 2 rebanadas de pan, 2 copas de claras de huevo, 1 cucharada de goma guar en polvo, endulzante, extracto de vainilla y canela. 
-Mezclar hasta que tenga una consistencia uniforme. 
-Es recomendable degar reposar por 2 a 3 horas la mezcla para mejorar su consistencia pero esto es opcional.
-Poner la sartén a una temperatura media, agregar aceite (de preferencia en spray),Y agregar la mezcla a la sarten, cocinar por 1-2 minutos. Luego agregarle las fresas partidas encima y cocinar el otro lado por uno a dos minutos. 
-Ademas, se puede agregar un scoop de tu batido proteico preferido a la mezcla.
-
-## Plato
-Servir estas tostadas en un plato con sus diferentes complementos, en este caso se agregan fresas pero puede agregarse cualquier tipo de fruta y un Jarabe de baja calorías
+<h3> Plato </h3>
+<p>Servir estas tostadas en un plato con sus diferentes complementos, en este caso se agregan fresas pero puede agregarse cualquier tipo de fruta y un Jarabe de baja calorías</p>
 ', 1, 1, NULL, NULL, 2);
 INSERT INTO public.receta OVERRIDING SYSTEM VALUE VALUES (3, 'Hamburguesa de pechuga de pollo', 'https://youtu.be/06O5vtVQEOE', '
-## Preparación
+<h3>Preparación</h3>
 
 1. Si es de su preferencia se recomienda marinar la pechuga de pollo en la noche con condimientos al gusto. 
 2. Poner la sarten a fuego medio y colocarle spray de aceite
@@ -1129,27 +1130,30 @@ Nota: Los macros estimados son descontando la cantidad de condimentos utilizados
 Servir en un plato, se puede acompañar con bebida natural al gusto. 
 ', 1, 2, NULL, NULL, 3);
 INSERT INTO public.receta OVERRIDING SYSTEM VALUE VALUES (4, 'Ensalada proteica balanceada', 'https://youtu.be/06O5vtVQEOE', '
-## Preparación
-
-1.cortar el tomate en rebanadas
-2.Preparar la sarten a calidad media colocar aceite en spray y cocinar la pechuga hasta termino medio
-3.Agregar 25g de pechuga.
-4. Agregar una cucharada de mayonesa light
-5. Opcional se pueden agregar cebolla al gusto. 
+<h3>Preparación</h3>
+<ol>
+<li> cortar el tomate en rebanadas</li>
+<li> Preparar la sarten a calidad media colocar aceite en spray y cocinar la pechuga hasta termino medio</li>
+<li> Agregar 25g de pechuga.</li>
+<li> Agregar una cucharada de mayonesa light</li>
+<li> Opcional se pueden agregar cebolla al gusto. </li>
+</ol>
 
 
 ', 1, 2, NULL, NULL, 4);
 INSERT INTO public.receta OVERRIDING SYSTEM VALUE VALUES (5, 'Fideos con carne magra', 'https://youtu.be/06O5vtVQEOE', '
-## Preparación
+<h3>Preparación</h3>
 
-1. Calentar 4 cuartos de agua en fuego alto. Cuando el agua empiece a hervir debemos reducir el fuego a fuego bajo.ejercicio 
-2. Agregar un paquete de pasta por persona, utilizar las instrucciones del empaque y al terminar se debe filtrar y poner a un lado
-3. En otro sarten se debe de poner a fuego medio y agregar aceite. 
-4. Agregar Carne magra de res y cocinarlo hasta que ambos lados se encuentren bien cocinado. 
-5. Calentar la salsa de tomate, para esto se puede utilizar el microondas.
+<ol>
+<li> Calentar 4 cuartos de agua en fuego alto. Cuando el agua empiece a hervir debemos reducir el fuego a fuego bajo.ejercicio </li>
+<li> Agregar un paquete de pasta por persona, utilizar las instrucciones del empaque y al terminar se debe filtrar y poner a un lado</li>
+<li> En otro sarten se debe de poner a fuego medio y agregar aceite. </li>
+<li> Agregar Carne magra de res y cocinarlo hasta que ambos lados se encuentren bien cocinado. </li>
+<li> Calentar la salsa de tomate, para esto se puede utilizar el microondas.</li>
+</ol>
 
-## Plato
-Servir con pasta, carne y salsa juntos. 
+<h3>Plato</h3>
+<p>Servir con pasta, carne y salsa juntos. </p>
 
 
 ', 1, 3, NULL, NULL, 5);

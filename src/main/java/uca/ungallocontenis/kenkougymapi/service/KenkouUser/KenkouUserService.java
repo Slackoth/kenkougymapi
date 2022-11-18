@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.apache.commons.collections4.IterableUtils;
 import org.apache.commons.collections4.Predicate;
@@ -18,10 +17,16 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.json.JsonMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 
+import uca.ungallocontenis.kenkougymapi.entity.KenkouUser.KenkouUser;
 import uca.ungallocontenis.kenkougymapi.entity.KenkouUser.Progreso;
 import uca.ungallocontenis.kenkougymapi.entity.KenkouUser.UsuarioObjetivoActivo.UsuarioObjetivoActivo;
+import uca.ungallocontenis.kenkougymapi.entity.KenkouUser.UsuarioPlanAlimenticioActivo.UsuarioPlanAlimenticioActivo;
+import uca.ungallocontenis.kenkougymapi.entity.KenkouUser.UsuarioPlanAlimenticioActivo.UsuarioPlanAlimenticioActivoKey;
+import uca.ungallocontenis.kenkougymapi.entity.Nutricion.PlanAlimenticio;
 import uca.ungallocontenis.kenkougymapi.repository.KenkouUser.KenkouUserRepository;
 import uca.ungallocontenis.kenkougymapi.repository.KenkouUser.ProgresoRepository;
+import uca.ungallocontenis.kenkougymapi.repository.KenkouUser.UsuarioPlanAlimenticioActivoRepository;
+import uca.ungallocontenis.kenkougymapi.repository.Nutricion.PlanAlimenticioRepository;
 import uca.ungallocontenis.kenkougymapi.utils.KenkouUtils;
 
 @Service
@@ -34,6 +39,12 @@ public class KenkouUserService {
 
     @Autowired
     private ProgresoRepository progresoRepository;
+
+    @Autowired
+    private UsuarioPlanAlimenticioActivoRepository planActivoRepository;
+
+    @Autowired
+    private PlanAlimenticioRepository planAlimenticioRepository;
 
     public String obtenerUsuario(String username) {
         String json = "[]";
@@ -67,6 +78,83 @@ public class KenkouUserService {
         return json;
     }
 
+    /* PLANES ALIMENTICIOS */
+
+    public String obtenerPlanAlimenticioActivo(String username) {
+        String json = "[]";
+        ObjectMapper mapper = new ObjectMapper();
+        UsuarioPlanAlimenticioActivo planAlimenticioActivo = IterableUtils.find(repository.getPlanesAlimenticiosByUsernameOrEmail(username, username), new Predicate<UsuarioPlanAlimenticioActivo>() {            @Override
+            public boolean evaluate(final UsuarioPlanAlimenticioActivo object) {
+                return object.isActivo();
+            }
+        });
+
+        try {
+            json = mapper.writeValueAsString(planAlimenticioActivo);
+        } catch (JsonProcessingException e) {
+            LOG.error("Error al parsear objetivo", e);
+        }
+
+        return json;
+    }
+
+    public String insertarPlanAlimenticioActivo(String username, int planId) {
+        String json = "[]";
+        KenkouUser usuario = repository.findByUsername(username);
+        ObjectMapper mapper = JsonMapper.builder().addModule(new JavaTimeModule()).build();
+        UsuarioPlanAlimenticioActivo planAlimenticioActivo = IterableUtils.find(repository.getPlanesAlimenticiosByUsernameOrEmail(username, username), new Predicate<UsuarioPlanAlimenticioActivo>() {            @Override
+            public boolean evaluate(final UsuarioPlanAlimenticioActivo object) {
+                return object.isActivo();
+            }
+        });
+        UsuarioPlanAlimenticioActivo planAlimenticioInactivo = IterableUtils.find(repository.getPlanesAlimenticiosByUsernameOrEmail(username, username), new Predicate<UsuarioPlanAlimenticioActivo>() {            @Override
+            public boolean evaluate(final UsuarioPlanAlimenticioActivo object) {
+                return object.getPlanAlimenticio().getId() == planId;
+            }
+        });
+
+        try {
+            if(planAlimenticioActivo.getPlanAlimenticio().getId() == planId)
+                json = mapper.writeValueAsString(usuario);
+            else {
+                // Removing current meal plan from Set to replace it with updated meal plan
+                usuario.getPlanesAlimenticios().remove(planAlimenticioActivo);
+
+                // Set to false because we are inserting a new active meal plan
+                planAlimenticioActivo.setEstado(false);
+
+                // Adding updated meal plan
+                usuario.getPlanesAlimenticios().add(planAlimenticioActivo);
+
+                if(planAlimenticioInactivo != null) {
+                    // Removing current meal plan from Set to replace it with updated meal plan
+                    usuario.getPlanesAlimenticios().remove(planAlimenticioInactivo);
+
+                    // Set to false because we are inserting a new active meal plan
+                    planAlimenticioInactivo.setEstado(true);
+
+                    // Adding updated meal plan
+                    usuario.getPlanesAlimenticios().add(planAlimenticioInactivo);
+                }
+                else {
+                    PlanAlimenticio planAlimenticio = planAlimenticioRepository.findById(planId);
+                    UsuarioPlanAlimenticioActivo nuevoPlanActivo = new UsuarioPlanAlimenticioActivo(new UsuarioPlanAlimenticioActivoKey(usuario.getUsername(), planId), usuario, planAlimenticio, true);
+                    
+                    planActivoRepository.saveAndFlush(nuevoPlanActivo);
+                    usuario.getPlanesAlimenticios().add(nuevoPlanActivo);
+                }
+            
+                json = mapper.writeValueAsString(repository.saveAndFlush(usuario));
+            }
+        } catch (JsonProcessingException e) {
+            LOG.error("Error al parsear objetivo", e);
+        }
+
+        return json;
+    }
+
+    /* PROGRESO */
+    
     public String insertarProgreso(Progreso progreso) {
         String json = "[]";
         double porcentajeGrasa = 0;

@@ -1,6 +1,7 @@
 package uca.ungallocontenis.kenkougymapi.controller.KenkouUser;
 
-import org.apache.commons.collections4.IterableUtils;
+import java.util.Map;
+
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -11,11 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-
 import uca.ungallocontenis.kenkougymapi.entity.KenkouUser.Progreso;
 import uca.ungallocontenis.kenkougymapi.service.KenkouUser.KenkouUserService;
+import uca.ungallocontenis.kenkougymapi.utils.KenkouUtils;
 
 @RestController
 @RequestMapping("/usuario")
@@ -24,15 +23,13 @@ public class KenkouUserController {
     @Autowired
     private KenkouUserService service;
 
-    private static final Logger LOG = org.slf4j.LoggerFactory.getLogger(KenkouUserController.class);
-
     @GetMapping("/obtenerUsuario")
-    public String obtenerUsuario(String username) {
+    public String obtenerUsuario(@RequestParam String username) {
         return service.obtenerUsuario(username); 
     }
 
     @GetMapping("/obtenerObjetivoActual")
-    public String obtenerObjetivoActual(String username) {
+    public String obtenerObjetivoActual(@RequestParam String username) {
         return service.obtenerObjetivoActual(username);
     }
     
@@ -44,5 +41,17 @@ public class KenkouUserController {
     @GetMapping("/obtenerProgreso")
     public String obtenerProgreso(@RequestParam String username, @RequestParam(required = false) String fechaInicial, @RequestParam String fechaActual) {
         return service.obtenerProgreso(username, fechaInicial, fechaActual);
+    }
+    
+    /* PLANES ALIMENTICIOS */
+
+    @PostMapping(path = "/insertarPlanAlimenticioActivo", consumes = {MediaType.APPLICATION_JSON_VALUE})
+    public String insertarPlanAlimenticioActivo(@RequestBody Map<String, Object> payload) {
+        return service.insertarPlanAlimenticioActivo(KenkouUtils.toString(payload.get("username")), KenkouUtils.toInteger(payload.get("planId")));
+    }
+
+    @GetMapping("/obtenerPlanAlimenticioActivo")
+    public String obtenerPlanAlimenticioActivo(@RequestParam String username) {
+        return service.obtenerPlanAlimenticioActivo(username);
     }
 }

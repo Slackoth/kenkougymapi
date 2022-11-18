@@ -27,4 +27,14 @@ public class UsuarioObjetivoActivoKey implements Serializable {
     public void setObjetivoId(int objetivoId) {
         this.objetivoId = objetivoId;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        return this.equals(obj);
+    }
+
+    @Override
+    public int hashCode() {
+        return usernameId.concat(String.valueOf(objetivoId)).hashCode();
+    }
 }

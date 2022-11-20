@@ -48,7 +48,7 @@ public class KenkouUserService {
 
     public String obtenerUsuario(String username) {
         String json = "[]";
-        ObjectMapper mapper = new ObjectMapper();
+        ObjectMapper mapper = JsonMapper.builder().addModule(new JavaTimeModule()).build();
 
         try {
             json = mapper.writeValueAsString(repository.findByUsername(username));
